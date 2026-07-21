@@ -68,19 +68,95 @@ Due to the storage limitations of the repurposed server, we don’t host too man
 
 ### Research Drive
 
-When we planned for setting-up this server, we discussed with CALS IT about the possibility to link ResearchDrive on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.
+When we planned for setting-up this server, we discussed with CALS IT about the possibility to link [ResearchDrive](https://it.wisc.edu/services/researchdrive/) on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.
 
 However, if your data is stored in ResearchDrive but it's quite small (a few GB), you can simply use regular file transfer tools like `scp` (see section #Importing and Exporting Data) to transfer files.
 
 ### Personal Storage space 
 
-\
+::: callout-note
+Section to come\
+:::
 
 # How-to
 
 ## The command line
 
-The command line is
+A command line (or CLI) is **a text-based interface used to interact with a computer’s operating system**. Instead of clicking icons with a mouse, you type specific text commands to navigate files, run programs, and manage system settings.
+
+You can find a number of tutorials online if you search for terms like : "intro to the command line" "how to use the command line" "unix shell introduction", etc.
+
+If you are looking for a step-by-step written tutorial I recommend [The Carpentries Introduction to the Unix Shell course](https://swcarpentry.github.io/shell-novice/01-intro.html) (free, asynchronous), especially the section "Navigating files and directories".
+
+Below are a list of useful commands:
+
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| Command         | Full Name / Meaning             | Description & Primary Usage                                                     | Common Examples                                                                 |
++:================+:================================+:================================================================================+:================================================================================+
+| `pwd`           | Print Working Directory         | Displays the absolute path of the directory you are currently in.               | `pwd`                                                                           |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `ls`            | List                            | Lists files and directories in the current or specified directory.              | `ls`<br>`ls -lh`<br>`ls -lht`                                                   |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `cd`            | Change Directory                | Moves your current location to a different folder.                              | Directly to the path (`cd /path/to/directory`)                                  |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | Up a folder: `cd ..`                                                            |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | Directly to home: `cd ~` or `cd`                                                |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `mkdir`         | Make Directory                  | Creates a new folder.                                                           | Make directory in current folder:                                               |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | `mkdir new_folder`                                                              |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | Make directory at a specific path regardless of where you are:                  |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | `mkdir -p path/to/nested_dir`                                                   |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `rmdir`         | Remove Directory                | Deletes an *empty* directory.                                                   | `rmdir old_folder`                                                              |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `cp`            | Copy                            | Copies files or directories from a **source** to a destination.                 | Copy file.txt to backup.txt (does not delete file.txt):                         |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | `cp file.txt backup.txt`                                                        |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | Copy a whole folder by using the `-r` option:                                   |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | `cp -r folder/ backup_folder/`                                                  |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `mv`            | Move                            | Moves files/folders to a new location or renames them.                          | `mv file.txt /new/path/`<br>`mv old_name.txt new_name.txt`                      |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 | **WARNING!** If you already have a file name new_name.txt it will OVERWRITE it. |                                                                                 |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| **CAUTION!!!!** | Remove                          | Deletes files or directories permanently.                                       | `rm unwanted_file.txt`<br>`rm -rf folder_name/`                                 |
+|                 |                                 |                                                                                 |                                                                                 |
+| `rm`            |                                 |                                                                                 |                                                                                 |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `touch`         | Touch                           | Creates an empty file or updates the timestamp of an existing file.             | `touch script.sh`                                                               |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `cat`           | Concatenate                     | Prints the entire contents of a file directly to the terminal.                  | `cat config.txt`                                                                |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | Print all the files ending with .txt and redirect to the file name contents.txt |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | `cat *.txt >> contents.txt`                                                     |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `less`          | Less                            | Opens a file in an interactive, scrollable viewer (`q` to exit).                | `less large_log.txt`                                                            |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `head`          | Head                            | Outputs the first 10 lines of a file by default.                                | `head data.csv`<br>                                                             |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | Change the number of lines what appear:                                         |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | `head -n 20 data.csv`                                                           |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `tail`          | Tail                            | Outputs the last 10 lines of a file by default.                                 | `tail data.csv`<br>`tail -f server.log`                                         |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `find`          | Find                            | Searches for files and directories matching specific patterns.                  | `find . -name "*.sh"`                                                           |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
+| `grep`          | Global Regular Expression Print | Search and filter a file based on a text pattern                                | Search for everything `>` in a fasta file (to know how many contigs it has)     |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | `grep '>' Genome.fasta`                                                         |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | Search for the word `apple` in the file grocerylist.txt                         |
+|                 |                                 |                                                                                 |                                                                                 |
+|                 |                                 |                                                                                 | `grep 'apple' grocerylist.txt`                                                  |
++-----------------+---------------------------------+---------------------------------------------------------------------------------+---------------------------------------------------------------------------------+
 
 ## Connecting to the Bacteriology server
 
@@ -113,11 +189,25 @@ To use Miniforge (conda/mamba commands) on Gipsydanger, do the following:
 
 3.  Log out and back in
 
-4.  This removes the word (base) from your prompt when no environment is active) `conda config --set auto_activate_base false`
-
 ::: callout-note
 Notice the presence of the parenthesis with a name in front of your prompt tells you that miniforge (conda) is activated. The default one is `(base)`, but if you type `conda activate envrname`, then it will change to `(envrname)`, hinting to you that you have that current envrname environment activated. This can help you figure out if the commands you want to use are available within that specific environment.
 :::
+
+### Viewing available software
+
+Once logged into the server, and after having initalized `conda` for the first time, type `conda env list`
+
+An example of the printout is shown here:
+
+- The `*` indicates which environment is activated. Right now, it's `base` and doesn't have any specific software installed.
+
+- The first column is the environment name. Use that name when you do `conda activate name` , for example, `conda activate blast`
+
+- The second column show the path where the software is installed. You don't really need to cd into these folders, but you can use it to distinguish which ones are the `gold images` and which ones are just by you for you. the ones at `/opt/miniforge/envs/` are gold images for everyone, including yourself. The ones are `/opt/miniforge/users/netid` are from/for that specific person.
+
+![](images/clipboard-633775173.png)
+
+See the two sections belows for more information the gold images or how to create your own environments.
 
 ### Use “gold images” (pre-installed software)
 
@@ -129,25 +219,43 @@ For example: `conda activate nameoftheenvr` (replace nameoftheenvr with the actu
 
 The table below shows some software pre-installed for all to use. When applicable, the path to the relevant database is included.
 
-|  |  |
-|----|----|
-| **Software** | **Use** |
-| fastqc | quality checking reads |
-| multiqc | reporting, summarizing outputs |
-| fastp | filtering and trimming reads |
-| spades | assembler |
-| flye | long-read assembler |
-| prokka | gene calling and annotation |
-| bakta | annotation program that uses multiple databases |
-| eggnog-mapper | annotation program that uses multiple databases |
-| iq-tree | phylogenetic trees |
-| mafft | multiple sequence alignment |
-| kraken2 | classification of reads |
-| qiime2 | analysis tool for 16S rRNA amplicon microbiome projects |
-| blast | NCBI Blast, includes blastn, blastp, blastx, etc. |
-| samtools | Working with alignment files (sorting, converting, viewing, etc.) |
-| bowtie2 | Read mapping tool |
-| mmseqs | Read mapping tool |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+|               |                                                          |                                                           |                                        |                                                   |                                       |
++===============+==========================================================+===========================================================+========================================+===================================================+=======================================+
+| **Software**  | **Use**                                                  | **Name of the conda environment (`conda activate name`)** | **Relevant database path (if needed)** | **Software Version**                              | **Help page**                         |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| fastqc        | quality checking reads                                   | fastqc                                                    |                                        | FastQC v0.12.1                                    | fastqc -h                             |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| multiqc       | reporting, summarizing outputs                           | multiqc                                                   |                                        | MultiQC v1.35                                     | multiqc -h                            |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| fastp         | filtering and trimming reads                             | fastp                                                     |                                        | fastp 1.3.6                                       | fastp -h                              |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| spades        | assembler                                                | spades                                                    |                                        | SPAdes genome assembler v4.3.0                    | spades.py -h                          |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| flye          | long-read assembler                                      | flye                                                      |                                        | flye 2.9.6-b1802                                  | flye -h                               |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| prokka        | gene calling and annotation                              | prokka                                                    |                                        | prokka 1.15.6                                     | prokka -h                             |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| bakta         | annotation program that uses multiple databases          | bakta                                                     | TO DO                                  | bakta 1.12.0                                      | bakta -h                              |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| eggnog-mapper | annotation program that uses multiple databases          |                                                           |                                        |                                                   |                                       |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| iqtree        | phylogenetic trees                                       | iqtree                                                    |                                        | IQ-TREE version 3.1.2                             | iqtree -h                             |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| mafft         | multiple sequence alignment                              | mafft                                                     |                                        | MAFFT v7.525                                      | mafft -h                              |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| kraken2       | classification of reads                                  | kraken2                                                   | TO DO                                  | Kraken version 2.17.1                             | kraken2 -h                            |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| qiime2        | analysis tool for 16S rRNA amplicon microbiome projects  | rachis-qiime2-2026.4                                      |                                        | QIIME 2 version: 2026.4.0                         | qiime info                            |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| blast         | NCBI Blast, includes blastn, blastp, blastx, etc.        | blast                                                     |                                        | blastn: 2.17.0+, blastp: 2.17.0+, blastx: 2.17.0+ | blastp -help, blastn -help, blastx -h |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| samtools      | Tools for dealing with SAM, BAM and CRAM alignment files | samtools                                                  |                                        | samtools 1.24                                     | samtools --help                       |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| bowtie2       | Read mapping tool                                        | bowtie2                                                   |                                        | bowtie version 2.5.5                              | bowtie2 -h                            |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
+| mmseqs2       | Read mapping tool                                        | mmseqs2                                                   |                                        | MMseqs2 Version: 18.8cc5c                         | mmseqs -h                             |
++---------------+----------------------------------------------------------+-----------------------------------------------------------+----------------------------------------+---------------------------------------------------+---------------------------------------+
 
 ### Creating your own conda environment
 

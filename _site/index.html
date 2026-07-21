@@ -131,9 +131,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#using-software" id="toc-using-software" class="nav-link" data-scroll-target="#using-software"><span class="header-section-number">2.4</span> Using software</a>
   <ul class="collapse">
   <li><a href="#first-time-using-conda-environments-on-the-server" id="toc-first-time-using-conda-environments-on-the-server" class="nav-link" data-scroll-target="#first-time-using-conda-environments-on-the-server"><span class="header-section-number">2.4.1</span> First time using conda environments on the server</a></li>
-  <li><a href="#use-gold-images-pre-installed-software" id="toc-use-gold-images-pre-installed-software" class="nav-link" data-scroll-target="#use-gold-images-pre-installed-software"><span class="header-section-number">2.4.2</span> Use “gold images” (pre-installed software)</a></li>
-  <li><a href="#creating-your-own-conda-environment" id="toc-creating-your-own-conda-environment" class="nav-link" data-scroll-target="#creating-your-own-conda-environment"><span class="header-section-number">2.4.3</span> Creating your own conda environment</a></li>
-  <li><a href="#docker-containers" id="toc-docker-containers" class="nav-link" data-scroll-target="#docker-containers"><span class="header-section-number">2.4.4</span> Docker containers</a></li>
+  <li><a href="#viewing-available-software" id="toc-viewing-available-software" class="nav-link" data-scroll-target="#viewing-available-software"><span class="header-section-number">2.4.2</span> Viewing available software</a></li>
+  <li><a href="#use-gold-images-pre-installed-software" id="toc-use-gold-images-pre-installed-software" class="nav-link" data-scroll-target="#use-gold-images-pre-installed-software"><span class="header-section-number">2.4.3</span> Use “gold images” (pre-installed software)</a></li>
+  <li><a href="#creating-your-own-conda-environment" id="toc-creating-your-own-conda-environment" class="nav-link" data-scroll-target="#creating-your-own-conda-environment"><span class="header-section-number">2.4.4</span> Creating your own conda environment</a></li>
+  <li><a href="#docker-containers" id="toc-docker-containers" class="nav-link" data-scroll-target="#docker-containers"><span class="header-section-number">2.4.5</span> Docker containers</a></li>
   </ul></li>
   <li><a href="#managing-jobs" id="toc-managing-jobs" class="nav-link" data-scroll-target="#managing-jobs"><span class="header-section-number">2.5</span> Managing jobs</a></li>
   <li><a href="#executing-a-job" id="toc-executing-a-job" class="nav-link" data-scroll-target="#executing-a-job"><span class="header-section-number">2.6</span> Executing a job</a></li>
@@ -216,13 +217,25 @@ ul.task-list li input[type="checkbox"] {
 <h2 data-number="1.3" class="anchored" data-anchor-id="data-storage"><span class="header-section-number">1.3</span> Data storage</h2>
 <section id="research-drive" class="level3" data-number="1.3.1">
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="research-drive"><span class="header-section-number">1.3.1</span> Research Drive</h3>
-<p>When we planned for setting-up this server, we discussed with CALS IT about the possibility to link ResearchDrive on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.</p>
+<p>When we planned for setting-up this server, we discussed with CALS IT about the possibility to link <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.</p>
 <p>However, if your data is stored in ResearchDrive but it’s quite small (a few GB), you can simply use regular file transfer tools like <code>scp</code> (see section #Importing and Exporting Data) to transfer files.</p>
 </section>
 <section id="personal-storage-space" class="level3" data-number="1.3.2">
 <h3 data-number="1.3.2" class="anchored" data-anchor-id="personal-storage-space"><span class="header-section-number">1.3.2</span> Personal Storage space&nbsp;</h3>
-<p><br>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Section to come<br>
 </p>
+</div>
+</div>
 </section>
 </section>
 </section>
@@ -230,7 +243,135 @@ ul.task-list li input[type="checkbox"] {
 <h1 data-number="2"><span class="header-section-number">2</span> How-to</h1>
 <section id="the-command-line" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="the-command-line"><span class="header-section-number">2.1</span> The command line</h2>
-<p>The command line is</p>
+<p>A command line (or CLI) is <strong>a text-based interface used to interact with a computer’s operating system</strong>. Instead of clicking icons with a mouse, you type specific text commands to navigate files, run programs, and manage system settings.</p>
+<p>You can find a number of tutorials online if you search for terms like : “intro to the command line” “how to use the command line” “unix shell introduction”, etc.</p>
+<p>If you are looking for a step-by-step written tutorial I recommend <a href="https://swcarpentry.github.io/shell-novice/01-intro.html">The Carpentries Introduction to the Unix Shell course</a> (free, asynchronous), especially the section “Navigating files and directories”.</p>
+<p>Below are a list of useful commands:</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 8%">
+<col style="width: 15%">
+<col style="width: 37%">
+<col style="width: 37%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Command</th>
+<th style="text-align: left;">Full Name / Meaning</th>
+<th style="text-align: left;">Description &amp; Primary Usage</th>
+<th style="text-align: left;">Common Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>pwd</code></td>
+<td style="text-align: left;">Print Working Directory</td>
+<td style="text-align: left;">Displays the absolute path of the directory you are currently in.</td>
+<td style="text-align: left;"><code>pwd</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>ls</code></td>
+<td style="text-align: left;">List</td>
+<td style="text-align: left;">Lists files and directories in the current or specified directory.</td>
+<td style="text-align: left;"><code>ls</code><br><code>ls -lh</code><br><code>ls -lht</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>cd</code></td>
+<td style="text-align: left;">Change Directory</td>
+<td style="text-align: left;">Moves your current location to a different folder.</td>
+<td style="text-align: left;"><p>Directly to the path (<code>cd /path/to/directory</code>)</p>
+<p>Up a folder: <code>cd ..</code></p>
+<p>Directly to home: <code>cd ~</code> or <code>cd</code></p></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>mkdir</code></td>
+<td style="text-align: left;">Make Directory</td>
+<td style="text-align: left;">Creates a new folder.</td>
+<td style="text-align: left;"><p>Make directory in current folder:</p>
+<p><code>mkdir new_folder</code></p>
+<p>Make directory at a specific path regardless of where you are:</p>
+<p><code>mkdir -p path/to/nested_dir</code></p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>rmdir</code></td>
+<td style="text-align: left;">Remove Directory</td>
+<td style="text-align: left;">Deletes an <em>empty</em> directory.</td>
+<td style="text-align: left;"><code>rmdir old_folder</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>cp</code></td>
+<td style="text-align: left;">Copy</td>
+<td style="text-align: left;">Copies files or directories from a <strong>source</strong> to a destination.</td>
+<td style="text-align: left;"><p>Copy file.txt to backup.txt (does not delete file.txt):</p>
+<p><code>cp file.txt backup.txt</code></p>
+<p>Copy a whole folder by using the <code>-r</code> option:</p>
+<p><code>cp -r folder/ backup_folder/</code></p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>mv</code></td>
+<td style="text-align: left;">Move</td>
+<td style="text-align: left;"><p>Moves files/folders to a new location or renames them.</p>
+<p><strong>WARNING!</strong> If you already have a file name new_name.txt it will OVERWRITE it.</p></td>
+<td style="text-align: left;"><code>mv file.txt /new/path/</code><br><code>mv old_name.txt new_name.txt</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><p><strong>CAUTION!!!!</strong></p>
+<p><code>rm</code></p></td>
+<td style="text-align: left;">Remove</td>
+<td style="text-align: left;">Deletes files or directories permanently.</td>
+<td style="text-align: left;"><code>rm unwanted_file.txt</code><br><code>rm -rf folder_name/</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>touch</code></td>
+<td style="text-align: left;">Touch</td>
+<td style="text-align: left;">Creates an empty file or updates the timestamp of an existing file.</td>
+<td style="text-align: left;"><code>touch script.sh</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>cat</code></td>
+<td style="text-align: left;">Concatenate</td>
+<td style="text-align: left;">Prints the entire contents of a file directly to the terminal.</td>
+<td style="text-align: left;"><p><code>cat config.txt</code></p>
+<p>Print all the files ending with .txt and redirect to the file name contents.txt</p>
+<p><code>cat *.txt &gt;&gt; contents.txt</code></p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>less</code></td>
+<td style="text-align: left;">Less</td>
+<td style="text-align: left;">Opens a file in an interactive, scrollable viewer (<code>q</code> to exit).</td>
+<td style="text-align: left;"><code>less large_log.txt</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>head</code></td>
+<td style="text-align: left;">Head</td>
+<td style="text-align: left;">Outputs the first 10 lines of a file by default.</td>
+<td style="text-align: left;"><p><code>head data.csv</code><br></p>
+<p>Change the number of lines what appear:</p>
+<p><code>head -n 20 data.csv</code></p></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>tail</code></td>
+<td style="text-align: left;">Tail</td>
+<td style="text-align: left;">Outputs the last 10 lines of a file by default.</td>
+<td style="text-align: left;"><code>tail data.csv</code><br><code>tail -f server.log</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>find</code></td>
+<td style="text-align: left;">Find</td>
+<td style="text-align: left;">Searches for files and directories matching specific patterns.</td>
+<td style="text-align: left;"><code>find . -name "*.sh"</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>grep</code></td>
+<td style="text-align: left;">Global Regular Expression Print</td>
+<td style="text-align: left;">Search and filter a file based on a text pattern</td>
+<td style="text-align: left;"><p>Search for everything <code>&gt;</code> in a fasta file (to know how many contigs it has)</p>
+<p><code>grep '&gt;' Genome.fasta</code></p>
+<p>Search for the word <code>apple</code> in the file grocerylist.txt</p>
+<p><code>grep 'apple' grocerylist.txt</code></p></td>
+</tr>
+</tbody>
+</table>
 </section>
 <section id="connecting-to-the-bacteriology-server" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="connecting-to-the-bacteriology-server"><span class="header-section-number">2.2</span> Connecting to the Bacteriology server</h2>
@@ -257,7 +398,6 @@ To use Miniforge (conda/mamba commands) on Gipsydanger, do the following:</p>
 <li><p><code>/opt/miniforge/bin/conda init</code></p></li>
 <li><p><code>mamba shell init --shell bash --root-prefix=/opt/miniforge</code></p></li>
 <li><p>Log out and back in</p></li>
-<li><p>This removes the word (base) from your prompt when no environment is active) <code>conda config --set auto_activate_base false</code></p></li>
 </ol>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -273,91 +413,175 @@ Note
 </div>
 </div>
 </section>
-<section id="use-gold-images-pre-installed-software" class="level3" data-number="2.4.2">
-<h3 data-number="2.4.2" class="anchored" data-anchor-id="use-gold-images-pre-installed-software"><span class="header-section-number">2.4.2</span> Use “gold images” (pre-installed software)</h3>
+<section id="viewing-available-software" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="viewing-available-software"><span class="header-section-number">2.4.2</span> Viewing available software</h3>
+<p>Once logged into the server, and after having initalized <code>conda</code> for the first time, type <code>conda env list</code></p>
+<p>An example of the printout is shown here:</p>
+<ul>
+<li><p>The <code>*</code> indicates which environment is activated. Right now, it’s <code>base</code> and doesn’t have any specific software installed.</p></li>
+<li><p>The first column is the environment name. Use that name when you do <code>conda activate name</code> , for example, <code>conda activate blast</code></p></li>
+<li><p>The second column show the path where the software is installed. You don’t really need to cd into these folders, but you can use it to distinguish which ones are the <code>gold images</code> and which ones are just by you for you. the ones at <code>/opt/miniforge/envs/</code> are gold images for everyone, including yourself. The ones are <code>/opt/miniforge/users/netid</code> are from/for that specific person.</p></li>
+</ul>
+<p><img src="images/clipboard-633775173.png" class="img-fluid"></p>
+<p>See the two sections belows for more information the gold images or how to create your own environments.</p>
+</section>
+<section id="use-gold-images-pre-installed-software" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="use-gold-images-pre-installed-software"><span class="header-section-number">2.4.3</span> Use “gold images” (pre-installed software)</h3>
 <p>From any folder location, you can type <code>conda env list</code> to view the most updated list of software available.</p>
 <p>Rows in the printout with a link to <code>/opt/miniforge</code> are some that we have pre-installed for everyone. Refer to the environment name in the first column to activate the environment of your choice.</p>
 <p>For example: <code>conda activate nameoftheenvr</code> (replace nameoftheenvr with the actual name).&nbsp;</p>
 <p>The table below shows some software pre-installed for all to use. When applicable, the path to the relevant database is included.</p>
 <table class="caption-top table">
 <colgroup>
-<col style="width: 50%">
-<col style="width: 50%">
+<col style="width: 5%">
+<col style="width: 21%">
+<col style="width: 22%">
+<col style="width: 15%">
+<col style="width: 19%">
+<col style="width: 14%">
 </colgroup>
 <tbody>
 <tr class="odd">
 <td><strong>Software</strong></td>
 <td><strong>Use</strong></td>
+<td><strong>Name of the conda environment (<code>conda activate name</code>)</strong></td>
+<td><strong>Relevant database path (if needed)</strong></td>
+<td><strong>Software Version</strong></td>
+<td><strong>Help page</strong></td>
 </tr>
 <tr class="even">
 <td>fastqc</td>
 <td>quality checking reads</td>
+<td>fastqc</td>
+<td></td>
+<td>FastQC v0.12.1</td>
+<td>fastqc -h</td>
 </tr>
 <tr class="odd">
 <td>multiqc</td>
 <td>reporting, summarizing outputs</td>
+<td>multiqc</td>
+<td></td>
+<td>MultiQC v1.35</td>
+<td>multiqc -h</td>
 </tr>
 <tr class="even">
 <td>fastp</td>
 <td>filtering and trimming reads</td>
+<td>fastp</td>
+<td></td>
+<td>fastp 1.3.6</td>
+<td>fastp -h</td>
 </tr>
 <tr class="odd">
 <td>spades</td>
 <td>assembler</td>
+<td>spades</td>
+<td></td>
+<td>SPAdes genome assembler v4.3.0</td>
+<td>spades.py -h</td>
 </tr>
 <tr class="even">
 <td>flye</td>
 <td>long-read assembler</td>
+<td>flye</td>
+<td></td>
+<td>flye 2.9.6-b1802</td>
+<td>flye -h</td>
 </tr>
 <tr class="odd">
 <td>prokka</td>
 <td>gene calling and annotation</td>
+<td>prokka</td>
+<td></td>
+<td>prokka 1.15.6</td>
+<td>prokka -h</td>
 </tr>
 <tr class="even">
 <td>bakta</td>
 <td>annotation program that uses multiple databases</td>
+<td>bakta</td>
+<td>TO DO</td>
+<td>bakta 1.12.0</td>
+<td>bakta -h</td>
 </tr>
 <tr class="odd">
 <td>eggnog-mapper</td>
 <td>annotation program that uses multiple databases</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>iq-tree</td>
+<td>iqtree</td>
 <td>phylogenetic trees</td>
+<td>iqtree</td>
+<td></td>
+<td>IQ-TREE version 3.1.2</td>
+<td>iqtree -h</td>
 </tr>
 <tr class="odd">
 <td>mafft</td>
 <td>multiple sequence alignment</td>
+<td>mafft</td>
+<td></td>
+<td>MAFFT v7.525</td>
+<td>mafft -h</td>
 </tr>
 <tr class="even">
 <td>kraken2</td>
 <td>classification of reads</td>
+<td>kraken2</td>
+<td>TO DO</td>
+<td>Kraken version 2.17.1</td>
+<td>kraken2 -h</td>
 </tr>
 <tr class="odd">
 <td>qiime2</td>
 <td>analysis tool for 16S rRNA amplicon microbiome projects</td>
+<td>rachis-qiime2-2026.4</td>
+<td></td>
+<td>QIIME 2 version: 2026.4.0</td>
+<td>qiime info</td>
 </tr>
 <tr class="even">
 <td>blast</td>
 <td>NCBI Blast, includes blastn, blastp, blastx, etc.</td>
+<td>blast</td>
+<td></td>
+<td>blastn: 2.17.0+, blastp: 2.17.0+, blastx: 2.17.0+</td>
+<td>blastp -help, blastn -help, blastx -h</td>
 </tr>
 <tr class="odd">
 <td>samtools</td>
-<td>Working with alignment files (sorting, converting, viewing, etc.)</td>
+<td>Tools for dealing with SAM, BAM and CRAM alignment files</td>
+<td>samtools</td>
+<td></td>
+<td>samtools 1.24</td>
+<td>samtools –help</td>
 </tr>
 <tr class="even">
 <td>bowtie2</td>
 <td>Read mapping tool</td>
+<td>bowtie2</td>
+<td></td>
+<td>bowtie version 2.5.5</td>
+<td>bowtie2 -h</td>
 </tr>
 <tr class="odd">
-<td>mmseqs</td>
+<td>mmseqs2</td>
 <td>Read mapping tool</td>
+<td>mmseqs2</td>
+<td></td>
+<td>MMseqs2 Version: 18.8cc5c</td>
+<td>mmseqs -h</td>
 </tr>
 </tbody>
 </table>
 </section>
-<section id="creating-your-own-conda-environment" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="creating-your-own-conda-environment"><span class="header-section-number">2.4.3</span> Creating your own conda environment</h3>
+<section id="creating-your-own-conda-environment" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="creating-your-own-conda-environment"><span class="header-section-number">2.4.4</span> Creating your own conda environment</h3>
 <p>You should not have to wait after us to use the software you want. Here are some instructions to install any software yourself. These will be installed only for you though!</p>
 <ol type="1">
 <li><p>Log in to the server</p></li>
@@ -412,8 +636,8 @@ Note
 </div>
 </div>
 </section>
-<section id="docker-containers" class="level3" data-number="2.4.4">
-<h3 data-number="2.4.4" class="anchored" data-anchor-id="docker-containers"><span class="header-section-number">2.4.4</span> Docker containers</h3>
+<section id="docker-containers" class="level3" data-number="2.4.5">
+<h3 data-number="2.4.5" class="anchored" data-anchor-id="docker-containers"><span class="header-section-number">2.4.5</span> Docker containers</h3>
 <p>There is the ability to use <code>Docker</code> containers, but based on the researchers we have helped in the past few years, we think that most users would find <code>miniforge</code>/<code>conda</code> easier to learn to use. If you are interested in using <code>docker</code> just let us know, and if there are multiple people who are interested, we will fill in this portion of the guide.</p>
 </section>
 </section>

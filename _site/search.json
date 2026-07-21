@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "",
+    "text": "The Department of Bacteriology computer server is available for researchers in the Department of Bacteriology free of use. It has been repurposed from previous IT needs and is currently available for research needs.\nAs a result, the server should not be expected to be expanded or upgraded for additional compute power in the future; rather is just to provide an additional compute environment for learning and analyzing small datasets if needed. The lifespan of the server as of 07/2026 is until MM/YYYY.\nThe departmental server is suitable for:\n\nLearning simple bioinformatics skills like the command and software installation and usage\nAnalyzing small datasets (your own data or test data)\nQuickly checking or testing a software you will want to use as part of a larger project\n\nIf you are working on an analysis-heavy project, other free campus compute resources might be more suitable. The Bioinformatics Research Support Service will be happy to meet with you to advise on what compute resource + training is most suited for your project needs, and where you currently are in your bioinformatics learning journey.\nFor example, we train many researchers in implementing their bioinformatics work on the Center for High Throughput Computing (CHTC) HTC cluster.\nAll the core skills you are using on the departmental server will be transferable to scaling your work on larger-scale computing resources. We actually work closely with their research facilitation team and meet with them monthly to update each other on what biologists are using research computing for!\nThe Dept of Bacteriology’s Bioinformatics Research Support Service will be happy to meet with you frequently or as needed to teach you some more advanced topics needed to use the departmental server and the compute resources or our campus partners.\n\n\nTo request access, please fill out this Google Form.\nThe form will ask you about:\n\nName and lab affiliation\nSummary of the type of bioinformatics work you would like to do on the server\nGeneral idea of how much data storage you will need\n\nOnce you submit the form, we will be notified by e-mail that you have submitted something.\nYou will then receive an e-mail confirming that you have been added within 1-2 business days (except during holidays and our time-off). If necessary, we might ask for more questions to understand your project.\n\n\n\nTo use software, we have conda environments set up. Conda is a software package managers that allows us to create distinct environments where distinct versions of software is installed. \nConda (miniforge, technically) environments are organized this way on the server:\n\n“Gold” environments: we have pre-installed these for all users. Located at this path: /opt/miniforge . Users can simple activate the environment of their choice to begin using the software.\nUser-created environments: If a software you want to use is not pre-installed, you can create your own conda environment, and your environments will be saved at this path: /opt/miniforge/users/&lt;your NetID&gt;/envs. Other users on the server will not be able to see the environments under your NetID.\n\n\n\n\nCertain common bioinformatics software requires large databases. \nWe have these pre-installed:\n\ntbd\ntbd\ntbd\n\n\nDue to the storage limitations of the repurposed server, we don’t host too many databases. However, we have large databases such as AlphaFold3, NCBI Blast NR, GTDB-tk (multiple versions), on the CHTC HTC cluster – which we can help you learn how to use as well. \n\n\n\n\n\nWhen we planned for setting-up this server, we discussed with CALS IT about the possibility to link ResearchDrive on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.\nHowever, if your data is stored in ResearchDrive but it’s quite small (a few GB), you can simply use regular file transfer tools like scp (see section #Importing and Exporting Data) to transfer files."
+  },
+  {
+    "objectID": "index.html#technical-overview",
+    "href": "index.html#technical-overview",
+    "title": "compute-guide-bact-server",
+    "section": "",
+    "text": "The Department of Bacteriology’s computer server is available for researchers in the Department of Bacteriology free of use. It has been repurposed from previous IT needs and is currently available for research needs. \n\n\nAs a result, the server should not be expected to be expanded or upgraded for additional compute power in the future; rather is just to provide an additional compute environment for learning and analyzing small datasets if needed. \n\n\nIf you need larger-scale compute power, we encourage you to learn about the Center for High Throughput Computing’s HTC server. We work closely with their research facilitation teams to meet your needs. The CHTC facilitation team can answer technical questions about how to create an account, how to use their machines, etc., and we at the Bioinformatics Research Support Service can help you with all of that, plus provide microbiology-relevant advice on bioinformatics software, parameters, data, etc."
+  },
+  {
+    "objectID": "index.html#requesting-access",
+    "href": "index.html#requesting-access",
+    "title": "compute-guide-bact-server",
+    "section": "Requesting access",
+    "text": "Requesting access\nTo request access, please fill out this Google Form.\nThe form will ask you about:\n\nName and lab affiliation\nSummary of the type of bioinformatics work you would like to do on the server\nGeneral idea of how much data storage you will need\n\n\n\nOnce you receive your e-mail confirming that you have been added to the user list that can access the server, you will need to:\n\n\n\nBe connected to the internet, and be on the Bacteriology department VPN or the UW-Madison campus VPN. \n\nThen, you will use your Terminal App (Mac) or an SSH program (Windows; examples: Powershell, Terminal (WSL), PuTTy, MobaXTerm):\nssh &lt;Net ID&gt;@gipsydanger.bact.wisc.edu"
+  },
+  {
+    "objectID": "index.html#software-available",
+    "href": "index.html#software-available",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "",
+    "text": "To use software, we have conda environments set up. Conda is a software package managers that allows us to create distinct environments where distinct versions of software is installed. \nConda (miniforge, technically) environments are organized this way on the server:\n\n“Gold” environments: we have pre-installed these for all users. Located at this path: /opt/miniforge . Users can simple activate the environment of their choice to begin using the software.\nUser-created environments: If a software you want to use is not pre-installed, you can create your own conda environment, and your environments will be saved at this path: /opt/miniforge/users/&lt;your NetID&gt;/envs. Other users on the server will not be able to see the environments under your NetID."
+  },
+  {
+    "objectID": "index.html#databases",
+    "href": "index.html#databases",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "",
+    "text": "Certain common bioinformatics software requires large databases. \nWe have these pre-installed:\n\ntbd\ntbd\ntbd\n\n\nDue to the storage limitations of the repurposed server, we don’t host too many databases. However, we have large databases such as AlphaFold3, NCBI Blast NR, GTDB-tk (multiple versions), on the CHTC HTC cluster – which we can help you learn how to use as well."
+  },
+  {
+    "objectID": "index.html#the-command-line",
+    "href": "index.html#the-command-line",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "2.1 The command line",
+    "text": "2.1 The command line\nThe command line is"
+  },
+  {
+    "objectID": "index.html#navigating-the-file-system",
+    "href": "index.html#navigating-the-file-system",
+    "title": "compute-guide-bact-server",
+    "section": "2.3. Navigating the file system",
+    "text": "2.3. Navigating the file system\n\n\nThe first time you log into the system, you will be in your user home, which path is /home/netid by default. This is where you will storage your data, read and write output files."
+  },
+  {
+    "objectID": "index.html#using-software",
+    "href": "index.html#using-software",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "2.4 Using software",
+    "text": "2.4 Using software\n\n2.4.1 First time using conda environments on the server\n\nTo use Miniforge (conda/mamba commands) on Gipsydanger, do the following:\n\n/opt/miniforge/bin/conda init\nmamba shell init --shell bash --root-prefix=/opt/miniforge\nLog out and back in\nThis removes the word (base) from your prompt when no environment is active) conda config --set auto_activate_base false\n\n\n\n\n\n\n\nNote\n\n\n\nNotice the presence of the parenthesis with a name in front of your prompt tells you that miniforge (conda) is activated. The default one is (base), but if you type conda activate envrname, then it will change to (envrname), hinting to you that you have that current envrname environment activated. This can help you figure out if the commands you want to use are available within that specific environment.\n\n\n\n\n2.4.2 Use “gold images” (pre-installed software)\nFrom any folder location, you can type conda env list to view the most updated list of software available.\nRows in the printout with a link to /opt/miniforge are some that we have pre-installed for everyone. Refer to the environment name in the first column to activate the environment of your choice.\nFor example: conda activate nameoftheenvr (replace nameoftheenvr with the actual name). \nThe table below shows some software pre-installed for all to use. When applicable, the path to the relevant database is included.\n\n\n\n\n\n\n\nSoftware\nUse\n\n\nfastqc\nquality checking reads\n\n\nmultiqc\nreporting, summarizing outputs\n\n\nfastp\nfiltering and trimming reads\n\n\nspades\nassembler\n\n\nflye\nlong-read assembler\n\n\nprokka\ngene calling and annotation\n\n\nbakta\nannotation program that uses multiple databases\n\n\neggnog-mapper\nannotation program that uses multiple databases\n\n\niq-tree\nphylogenetic trees\n\n\nmafft\nmultiple sequence alignment\n\n\nkraken2\nclassification of reads\n\n\nqiime2\nanalysis tool for 16S rRNA amplicon microbiome projects\n\n\nblast\nNCBI Blast, includes blastn, blastp, blastx, etc.\n\n\nsamtools\nWorking with alignment files (sorting, converting, viewing, etc.)\n\n\nbowtie2\nRead mapping tool\n\n\nmmseqs\nRead mapping tool\n\n\n\n\n\n2.4.3 Creating your own conda environment\nYou should not have to wait after us to use the software you want. Here are some instructions to install any software yourself. These will be installed only for you though!\n\nLog in to the server\nType conda env list to view what is available\nDecide how you want to name your environment, for example, if you want to name it blast. You would then type conda env create -n blast\nMake sure the environment is created: conda env list\n\nYou should see a new row in the table named blast\nThe star * indicates which environment is currently activated.\n\nYou need to install the software within the environment, not in the generic base environment. To do this, activate the correct environment: conda activate blast\nConfirm that the prompt should now say (blast) or whatever your environment name is.\nTo figure out what command to use to install the software:\n\nGo to anaconda.org\nUse the search bar to search for a program of your choice\nReview the results under “packages”. \nOften, bioinformatics software is published under the bioconda channel. \nClick on the package name, and copy the installation instructions, they will look something like this: conda install bioconda::blast\nPaste that conda install command into your terminal\n\nTest that your software has been installed\n\nMake sure the environment is still activated (word in parenthesis)\nCheck the manual of your software to see how to find the help page. Usually this is the software name followed by -h or --h or -help or some variation of that.\nYou can also start typing the software name and use the tab button on your keyboard to try to autocomplete the name. \n\nTroubleshooting.\n\nMake sure you are spelling the name of the software correctly; it is case sensitive\nSometimes, the name of the software as published vs. how to access it via the command line is slightly different: check the documentation of your software to try to figure out how to use it\n\nDeactivating the environment\n\nTo ensure that you are not installing all kinds of unrelated software and versions under the same environment and to keep things clean, deactivate the environment once you’re done using the software.\n\nYou can always deactivate and activate the environment in the future once it has been created. You don’t need to re-create the environment or reinstall the software\nIf you ever forget which environment you’ve created, type conda env list\n\n\n\n\n\n\n\nNote\n\n\n\nYou can have multiple conda environments even if it’s the same tool. For example, you might have analyzed your data using software v. 1.5.2 but the a new paper you found this week is using software v. 1.6.2, a more updated version since you’ve done your analysis, and their results and figures are really interesting.\nPerhaps in between those version, new databases have been added that are more representative of the genomic data available for your study organisms. You might want to create a new, distinct conda environment with the updated software version to test the new software + database so compare how your results, but also want to keep the older software available, since you’ve already done your preliminary research using that and you know it worked.\n\n\n\n\n2.4.4 Docker containers\nThere is the ability to use Docker containers, but based on the researchers we have helped in the past few years, we think that most users would find miniforge/conda easier to learn to use. If you are interested in using docker just let us know, and if there are multiple people who are interested, we will fill in this portion of the guide."
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "index.html#data-storage",
+    "href": "index.html#data-storage",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "",
+    "text": "When we planned for setting-up this server, we discussed with CALS IT about the possibility to link ResearchDrive on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.\nHowever, if your data is stored in ResearchDrive but it’s quite small (a few GB), you can simply use regular file transfer tools like scp (see section #Importing and Exporting Data) to transfer files."
+  },
+  {
+    "objectID": "index.html#connecting-to-the-bacteriology-server",
+    "href": "index.html#connecting-to-the-bacteriology-server",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "2.2 Connecting to the Bacteriology server",
+    "text": "2.2 Connecting to the Bacteriology server\nOnce you receive your e-mail confirming that you have been added to the user list that can access the server, you will need to:\n\nBe connected to the internet, and be on the Bacteriology department VPN or the UW-Madison campus VPN. \n\nThen, you will use your Terminal App (Mac) or an SSH program (Windows; examples: Powershell, Terminal (WSL), PuTTy, MobaXTerm):\nssh &lt;Net ID&gt;@gipsydanger.bact.wisc.edu\nReplace &lt;Net ID&gt; with your own netID, and no need to use the &lt;&gt; brackets.\nYou may need to have your multi-factor authentication nearby."
+  },
+  {
+    "objectID": "index.html#important-folders",
+    "href": "index.html#important-folders",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "2.3 Important folders",
+    "text": "2.3 Important folders\nThe first time you log into the system, you will be in your user home, which path is /home/netid@ad.wisc.eduby default, where netid will be replace with your own netid. This is where you will storage your data, read and write output files."
+  },
+  {
+    "objectID": "index.html#managing-jobs",
+    "href": "index.html#managing-jobs",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "2.5 Managing jobs",
+    "text": "2.5 Managing jobs\nAs we are just launching this computing option, we do not know yet how many researchers are interested in using the compute server, so the way that we manage jobs will likely change in the future.\nFor now, since the server is just for small analysis and jobs, just make sure to limit the number of cores (threads) you are using to 16 per user, and that your jobs don’t run for too long (&lt;12 hours).\nIf there are lots of users, then we will likely need to set some limits on the jobs - TBD.\nIf you are running large-scale projects (e.g. many samples, lots of cpus/threads, very long jobs) other campus computing resources will be better suited for your needs. Ask us to teach you how to use them!\nWe will not be micromanaging jobs, so we will just rely on your honesty to self manage."
+  },
+  {
+    "objectID": "index.html#importing-and-exporting-files",
+    "href": "index.html#importing-and-exporting-files",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "2.7 Importing and Exporting files",
+    "text": "2.7 Importing and Exporting files\nYou can use a FileTransfer program, such as FileZilla or CyberDuck to transfer files.\nYou can also use the command line and follow this format:\nscp fileyouwantomove whereyouwantomoveit\n\nTo transfer files from your laptop to the server:\n\nOpen a terminal on your laptop (not logged into the server)\nscp filename serveraddress:/path/on/server\nFor example: scp sample1.fastq.gz netID@gipsydanger.bact.wisc.edu:/home/netid/\n\nTo transfer a file from the server to your laptop\n\nOpen the terminal and move to the location on your laptop where you want the file to be exported to:\nscp netID@gipsydanger.bact.wisc.edu:/home/netid/output/analysed_data.fasta ."
+  },
+  {
+    "objectID": "index.html#executing-a-job",
+    "href": "index.html#executing-a-job",
+    "title": "Department of Bacteriology compute server for research purposes",
+    "section": "2.6 Executing a job",
+    "text": "2.6 Executing a job\nYou can run commands directly from your home folder while connected to the server. As you are testing here are some tips:\n\n\n\n\n\n\n\nTip\n\n\n\n\nKeep track of your code, have a document nearby to copy-paste your commands or what you are trying and the outputs, just like you would when you are doing a wet lab experiment and writing in a lab notebook.\nWrite down exact commands, errors you are having, and how you solved the error\nAlways start by reading the software manual from the original developers. There will usually be a section with some example commands, or how to use parameters. Sometimes, there is a test dataset that they provide so test that the software you installed (or that we have installed for you) can go through all the execution steps.\nIf you have pressed enter and the job is running, but it’s taking too long and you want to stop it you can press `CTRL+C` to get your prompt again.\n\n\n\n\nWhen you have tested an example command and know how to use it properly, you can write the command inside of a bash script, save it, make it executable, and run it in the background for example:\nStep 1. Use nano to write a file named fastqc.sh\n#!/bin/bash\n\nfastqc /home/netid@ad.bact.edu/data/reads/*.fastq.gz\n\n\n\n\n\n\nNote\n\n\n\nthe first line, #!/bin/bash is the header, and tells the computer that this is a bash script (.sh file extension). Always write this at the top of your scripts.\n\n\nStep 2. Make it executable: chmod +x fastqc.sh\nStep 3. Run your job in the background: nohup bash fastqc.sh &gt; fastqc.log\n\n\n\n\n\n\nNote\n\n\n\nWhat does this mean?\n\nnohup allows you to run code in the background. So if you need to close your laptop or disconnect, the job will continue running. This is helpful for very long jobs.\nbash tells the computer that we are giving it a bash script to run. T\nhat bash script is the fastqc.sh script we used previously.\nthe &gt; means save the terminal output to a file.\nThat file is the log file, in this case, named fastqc.log.\n\nStoring your code in a .sh file is sure way to make your work more reproducible as it contains the exact conda environment you used, and the exact command you use - in case you ever need that in the future, for example when writing your methods section of a paper. The .log file is useful to have because it contains helpful information about troubleshooting."
+  }
+]

@@ -1,0 +1,32 @@
+project:
+  type: website
+
+website:
+  title: "compute-guide-bact-server"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+  
+  # Optional: If you want a left sidebar that auto-generates 
+  # navigation for your site's files and their internal headings:
+sidebar:
+    style: "docked"
+    search: true
+    collapse-level: 4
+
+format:
+  html:
+    theme:
+      - cosmo
+      - brand
+    css: styles.css
+    
+    # --- Navigation & Numbering Customizations ---
+    toc: true
+    toc-depth: 4            # Shows subheadings down to H4 (adjust as needed)
+    toc-title: "On this page"
+    number-sections: true   # Automatically numbers all headings (1, 1.1, etc.)
+    number-depth: 3         # Numbers headings down to H3 (H4 and below won't be numbered)
+
+editor: visual

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.36">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Department of Bacteriology compute server for research purposes – compute-guide-bact-server</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-845c23b38eaddc0f92fda52bfe77a8c8.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-158031087360bce0ff56dc785ce39e06.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">compute-guide-bact-server</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./index.html" aria-current="page"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview-and-suitable-uses" id="toc-overview-and-suitable-uses" class="nav-link active" data-scroll-target="#overview-and-suitable-uses"><span class="header-section-number">1</span> Overview and suitable uses</a>
+  <ul>
+  <li><a href="#requesting-access" id="toc-requesting-access" class="nav-link" data-scroll-target="#requesting-access"><span class="header-section-number">1.0.1</span> Requesting access</a></li>
+  <li><a href="#software-available" id="toc-software-available" class="nav-link" data-scroll-target="#software-available"><span class="header-section-number">1.1</span> Software available</a></li>
+  <li><a href="#databases" id="toc-databases" class="nav-link" data-scroll-target="#databases"><span class="header-section-number">1.2</span> Databases</a></li>
+  <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage"><span class="header-section-number">1.3</span> Data storage</a>
+  <ul class="collapse">
+  <li><a href="#research-drive" id="toc-research-drive" class="nav-link" data-scroll-target="#research-drive"><span class="header-section-number">1.3.1</span> Research Drive</a></li>
+  <li><a href="#personal-storage-space" id="toc-personal-storage-space" class="nav-link" data-scroll-target="#personal-storage-space"><span class="header-section-number">1.3.2</span> Personal Storage space&nbsp;</a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#how-to" id="toc-how-to" class="nav-link" data-scroll-target="#how-to"><span class="header-section-number">2</span> How-to</a>
+  <ul>
+  <li><a href="#the-command-line" id="toc-the-command-line" class="nav-link" data-scroll-target="#the-command-line"><span class="header-section-number">2.1</span> The command line</a></li>
+  <li><a href="#connecting-to-the-bacteriology-server" id="toc-connecting-to-the-bacteriology-server" class="nav-link" data-scroll-target="#connecting-to-the-bacteriology-server"><span class="header-section-number">2.2</span> Connecting to the Bacteriology server</a></li>
+  <li><a href="#important-folders" id="toc-important-folders" class="nav-link" data-scroll-target="#important-folders"><span class="header-section-number">2.3</span> Important folders</a></li>
+  <li><a href="#using-software" id="toc-using-software" class="nav-link" data-scroll-target="#using-software"><span class="header-section-number">2.4</span> Using software</a>
+  <ul class="collapse">
+  <li><a href="#first-time-using-conda-environments-on-the-server" id="toc-first-time-using-conda-environments-on-the-server" class="nav-link" data-scroll-target="#first-time-using-conda-environments-on-the-server"><span class="header-section-number">2.4.1</span> First time using conda environments on the server</a></li>
+  <li><a href="#use-gold-images-pre-installed-software" id="toc-use-gold-images-pre-installed-software" class="nav-link" data-scroll-target="#use-gold-images-pre-installed-software"><span class="header-section-number">2.4.2</span> Use “gold images” (pre-installed software)</a></li>
+  <li><a href="#creating-your-own-conda-environment" id="toc-creating-your-own-conda-environment" class="nav-link" data-scroll-target="#creating-your-own-conda-environment"><span class="header-section-number">2.4.3</span> Creating your own conda environment</a></li>
+  <li><a href="#docker-containers" id="toc-docker-containers" class="nav-link" data-scroll-target="#docker-containers"><span class="header-section-number">2.4.4</span> Docker containers</a></li>
+  </ul></li>
+  <li><a href="#managing-jobs" id="toc-managing-jobs" class="nav-link" data-scroll-target="#managing-jobs"><span class="header-section-number">2.5</span> Managing jobs</a></li>
+  <li><a href="#executing-a-job" id="toc-executing-a-job" class="nav-link" data-scroll-target="#executing-a-job"><span class="header-section-number">2.6</span> Executing a job</a></li>
+  <li><a href="#importing-and-exporting-files" id="toc-importing-and-exporting-files" class="nav-link" data-scroll-target="#importing-and-exporting-files"><span class="header-section-number">2.7</span> Importing and Exporting files</a></li>
+  </ul></li>
+  <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">3</span> Questions</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Department of Bacteriology compute server for research purposes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="overview-and-suitable-uses" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Overview and suitable uses</h1>
+<p>The <strong>Department of Bacteriology</strong> computer server is available for researchers in the Department of Bacteriology free of use. It has been repurposed from previous IT needs and is currently available for research needs.</p>
+<p>As a result, the server <strong>should not be expected</strong> to be expanded or upgraded for additional compute power in the future; rather is just to provide an additional compute environment for learning and analyzing small datasets if needed. The lifespan of the server as of <strong>07/2026</strong> is until <strong>MM/YYYY</strong>.</p>
+<p>The departmental server is suitable for:</p>
+<ul>
+<li><p>Learning simple bioinformatics skills like the command and software installation and usage</p></li>
+<li><p>Analyzing small datasets (your own data or test data)</p></li>
+<li><p>Quickly checking or testing a software you will want to use as part of a larger project</p></li>
+</ul>
+<p>If you are working on an analysis-heavy project, other free campus compute resources might be more suitable. <strong>The Bioinformatics Research Support Service will be happy to meet with you to advise on what compute resource + training is most suited for your project needs, and where you currently are in your bioinformatics learning journey.</strong></p>
+<p>For example, we train many researchers in implementing their bioinformatics work on the <a href="https://chtc.cs.wisc.edu/uw-research-computing/form.html">Center for High Throughput Computing (CHTC) HTC cluster</a>.</p>
+<p>All the core skills you are using on the departmental server will be transferable to scaling your work on larger-scale computing resources. We actually work closely with their research facilitation team and meet with them monthly to update each other on what biologists are using research computing for!</p>
+<p>The Dept of Bacteriology’s Bioinformatics Research Support Service will be happy to meet with you frequently or as needed to teach you some more advanced topics needed to use the departmental server and the compute resources or our campus partners.</p>
+<section id="requesting-access" class="level3" data-number="1.0.1">
+<h3 data-number="1.0.1" class="anchored" data-anchor-id="requesting-access"><span class="header-section-number">1.0.1</span> Requesting access</h3>
+<p>To request access, please fill out this <a href="https://forms.gle/HQ7jw9eRa3FL6xwcA">Google Form</a>.</p>
+<p>The form will ask you about:</p>
+<ul>
+<li><p>Name and lab affiliation</p></li>
+<li><p>Summary of the type of bioinformatics work you would like to do on the server</p></li>
+<li><p>General idea of how much data storage you will need</p></li>
+</ul>
+<p>Once you submit the form, we will be notified by e-mail that you have submitted something.</p>
+<p>You will then receive an e-mail confirming that you have been added within 1-2 business days (except during holidays and our time-off). If necessary, we might ask for more questions to understand your project.</p>
+</section>
+<section id="software-available" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="software-available"><span class="header-section-number">1.1</span> Software available</h2>
+<p>To use software, we have conda environments set up. Conda is a software package managers that allows us to create distinct environments where distinct versions of software is installed.&nbsp;</p>
+<p>Conda (miniforge, technically) environments are organized this way on the server:</p>
+<ul>
+<li><p><strong>“Gold” environments</strong>: we have pre-installed these for all users. Located at this path: <code>/opt/miniforge</code> . Users can simple activate the environment of their choice to begin using the software.</p></li>
+<li><p><strong>User-created environments</strong>: If a software you want to use is not pre-installed, you can create your own conda environment, and your environments will be saved at this path: <code>/opt/miniforge/users/&lt;your NetID&gt;/envs</code>. Other users on the server will not be able to see the environments under your NetID.</p></li>
+</ul>
+</section>
+<section id="databases" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="databases"><span class="header-section-number">1.2</span> Databases</h2>
+<p>Certain common bioinformatics software requires large databases.&nbsp;</p>
+<p>We have these pre-installed:</p>
+<ul>
+<li><p>tbd</p></li>
+<li><p>tbd</p></li>
+<li><p>tbd<br>
+</p></li>
+</ul>
+<p>Due to the storage limitations of the repurposed server, we don’t host too many databases. However, we have large databases such as <code>AlphaFold3</code>, <code>NCBI Blast NR</code>, <code>GTDB-tk</code> (multiple versions), on the CHTC HTC cluster – which we can help you learn how to use as well.&nbsp;</p>
+</section>
+<section id="data-storage" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="data-storage"><span class="header-section-number">1.3</span> Data storage</h2>
+<section id="research-drive" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="research-drive"><span class="header-section-number">1.3.1</span> Research Drive</h3>
+<p>When we planned for setting-up this server, we discussed with CALS IT about the possibility to link ResearchDrive on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.</p>
+<p>However, if your data is stored in ResearchDrive but it’s quite small (a few GB), you can simply use regular file transfer tools like <code>scp</code> (see section #Importing and Exporting Data) to transfer files.</p>
+</section>
+<section id="personal-storage-space" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="personal-storage-space"><span class="header-section-number">1.3.2</span> Personal Storage space&nbsp;</h3>
+<p><br>
+</p>
+</section>
+</section>
+</section>
+<section id="how-to" class="level1" data-number="2">
+<h1 data-number="2"><span class="header-section-number">2</span> How-to</h1>
+<section id="the-command-line" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-command-line"><span class="header-section-number">2.1</span> The command line</h2>
+<p>The command line is</p>
+</section>
+<section id="connecting-to-the-bacteriology-server" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="connecting-to-the-bacteriology-server"><span class="header-section-number">2.2</span> Connecting to the Bacteriology server</h2>
+<p>Once you receive your e-mail confirming that you have been added to the user list that can access the server, you will need to:</p>
+<ul>
+<li>Be connected to the internet, and be on the Bacteriology department VPN or the <a href="https://it.wisc.edu/services/wiscvpn/">UW-Madison campus VPN</a>.&nbsp;</li>
+</ul>
+<p>Then, you will use your Terminal App (Mac) or an SSH program (Windows; examples: Powershell, Terminal (WSL), PuTTy, MobaXTerm):</p>
+<p><code>ssh &lt;Net ID&gt;@gipsydanger.bact.wisc.edu</code></p>
+<p>Replace <code>&lt;Net ID&gt;</code> with your own netID, and no need to use the &lt;&gt; brackets.</p>
+<p>You may need to have your <a href="https://it.wisc.edu/services/duo-multi-factor-authentication-mfa/">multi-factor authentication</a> nearby.</p>
+</section>
+<section id="important-folders" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="important-folders"><span class="header-section-number">2.3</span> Important folders</h2>
+<p>The first time you log into the system, you will be in your user home, which path is <code>/home/netid@ad.wisc.edu</code>by default, where netid will be replace with your own netid. This is where you will storage your data, read and write output files.</p>
+</section>
+<section id="using-software" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="using-software"><span class="header-section-number">2.4</span> Using software</h2>
+<section id="first-time-using-conda-environments-on-the-server" class="level3" data-number="2.4.1">
+<h3 data-number="2.4.1" class="anchored" data-anchor-id="first-time-using-conda-environments-on-the-server"><span class="header-section-number">2.4.1</span> First time using conda environments on the server</h3>
+<p><br>
+To use Miniforge (conda/mamba commands) on Gipsydanger, do the following:</p>
+<ol type="1">
+<li><p><code>/opt/miniforge/bin/conda init</code></p></li>
+<li><p><code>mamba shell init --shell bash --root-prefix=/opt/miniforge</code></p></li>
+<li><p>Log out and back in</p></li>
+<li><p>This removes the word (base) from your prompt when no environment is active) <code>conda config --set auto_activate_base false</code></p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Notice the presence of the parenthesis with a name in front of your prompt tells you that miniforge (conda) is activated. The default one is <code>(base)</code>, but if you type <code>conda activate envrname</code>, then it will change to <code>(envrname)</code>, hinting to you that you have that current envrname environment activated. This can help you figure out if the commands you want to use are available within that specific environment.</p>
+</div>
+</div>
+</section>
+<section id="use-gold-images-pre-installed-software" class="level3" data-number="2.4.2">
+<h3 data-number="2.4.2" class="anchored" data-anchor-id="use-gold-images-pre-installed-software"><span class="header-section-number">2.4.2</span> Use “gold images” (pre-installed software)</h3>
+<p>From any folder location, you can type <code>conda env list</code> to view the most updated list of software available.</p>
+<p>Rows in the printout with a link to <code>/opt/miniforge</code> are some that we have pre-installed for everyone. Refer to the environment name in the first column to activate the environment of your choice.</p>
+<p>For example: <code>conda activate nameoftheenvr</code> (replace nameoftheenvr with the actual name).&nbsp;</p>
+<p>The table below shows some software pre-installed for all to use. When applicable, the path to the relevant database is included.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<tbody>
+<tr class="odd">
+<td><strong>Software</strong></td>
+<td><strong>Use</strong></td>
+</tr>
+<tr class="even">
+<td>fastqc</td>
+<td>quality checking reads</td>
+</tr>
+<tr class="odd">
+<td>multiqc</td>
+<td>reporting, summarizing outputs</td>
+</tr>
+<tr class="even">
+<td>fastp</td>
+<td>filtering and trimming reads</td>
+</tr>
+<tr class="odd">
+<td>spades</td>
+<td>assembler</td>
+</tr>
+<tr class="even">
+<td>flye</td>
+<td>long-read assembler</td>
+</tr>
+<tr class="odd">
+<td>prokka</td>
+<td>gene calling and annotation</td>
+</tr>
+<tr class="even">
+<td>bakta</td>
+<td>annotation program that uses multiple databases</td>
+</tr>
+<tr class="odd">
+<td>eggnog-mapper</td>
+<td>annotation program that uses multiple databases</td>
+</tr>
+<tr class="even">
+<td>iq-tree</td>
+<td>phylogenetic trees</td>
+</tr>
+<tr class="odd">
+<td>mafft</td>
+<td>multiple sequence alignment</td>
+</tr>
+<tr class="even">
+<td>kraken2</td>
+<td>classification of reads</td>
+</tr>
+<tr class="odd">
+<td>qiime2</td>
+<td>analysis tool for 16S rRNA amplicon microbiome projects</td>
+</tr>
+<tr class="even">
+<td>blast</td>
+<td>NCBI Blast, includes blastn, blastp, blastx, etc.</td>
+</tr>
+<tr class="odd">
+<td>samtools</td>
+<td>Working with alignment files (sorting, converting, viewing, etc.)</td>
+</tr>
+<tr class="even">
+<td>bowtie2</td>
+<td>Read mapping tool</td>
+</tr>
+<tr class="odd">
+<td>mmseqs</td>
+<td>Read mapping tool</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="creating-your-own-conda-environment" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="creating-your-own-conda-environment"><span class="header-section-number">2.4.3</span> Creating your own conda environment</h3>
+<p>You should not have to wait after us to use the software you want. Here are some instructions to install any software yourself. These will be installed only for you though!</p>
+<ol type="1">
+<li><p>Log in to the server</p></li>
+<li><p>Type <code>conda env list</code> to view what is available</p></li>
+<li><p>Decide how you want to name your environment, for example, if you want to name it <code>blast</code>. You would then type <code>conda env create -n blast</code></p></li>
+<li><p>Make sure the environment is created: <code>conda env list</code></p>
+<ol type="1">
+<li>You should see a new row in the table named blast</li>
+<li>The star * indicates which environment is currently activated.</li>
+</ol></li>
+<li><p>You need to install the software within the environment, not in the generic base environment. To do this, activate the correct environment: <code>conda activate blast</code></p></li>
+<li><p>Confirm that the prompt should now say <code>(blast)</code> or whatever your environment name is.</p></li>
+<li><p>To figure out what command to use to install the software:</p>
+<ol type="1">
+<li><p>Go to <a href="http://anaconda.org">anaconda.org</a></p></li>
+<li><p>Use the search bar to search for a program of your choice</p></li>
+<li><p>Review the results under “packages”.&nbsp;</p></li>
+<li><p>Often, bioinformatics software is published under the <code>bioconda</code> channel.&nbsp;</p></li>
+<li><p>Click on the package name, and copy the installation instructions, they will look something like this: <code>conda install bioconda::blast</code></p></li>
+<li><p>Paste that conda install command into your terminal</p></li>
+</ol></li>
+<li><p>Test that your software has been installed</p>
+<ol type="1">
+<li><p>Make sure the environment is still activated (word in parenthesis)</p></li>
+<li><p>Check the manual of your software to see how to find the help page. Usually this is the software name followed by <code>-h</code> or <code>--h</code> or <code>-help</code> or some variation of that.</p></li>
+<li><p>You can also start typing the software name and use the tab button on your keyboard to try to autocomplete the name.&nbsp;</p></li>
+</ol></li>
+<li><p>Troubleshooting.</p>
+<ol type="1">
+<li><p>Make sure you are spelling the name of the software correctly; it is case sensitive</p></li>
+<li><p>Sometimes, the name of the software as published vs.&nbsp;how to access it via the command line is slightly different: check the documentation of your software to try to figure out how to use it</p></li>
+</ol></li>
+<li><p>Deactivating the environment</p>
+<ol type="1">
+<li>To ensure that you are not installing all kinds of unrelated software and versions under the same environment and to keep things clean, deactivate the environment once you’re done using the software.</li>
+</ol></li>
+<li><p>You can always deactivate and activate the environment in the future once it has been created. You don’t need to re-create the environment or reinstall the software</p></li>
+<li><p>If you ever forget which environment you’ve created, type <code>conda env list</code></p></li>
+</ol>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can have multiple conda environments even if it’s the same tool. For example, you might have analyzed your data using <code>software v. 1.5.2</code> but the a new paper you found this week is using <code>software v. 1.6.2</code>, a more updated version since you’ve done your analysis, and their results and figures are really interesting.</p>
+<p>Perhaps in between those version, new databases have been added that are more representative of the genomic data available for your study organisms. You might want to create a <strong>new, distinct</strong> conda environment with the updated software version to test the new software + database so compare how your results, but also want to keep the older software available, since you’ve already done your preliminary research using that and you know it worked.</p>
+</div>
+</div>
+</section>
+<section id="docker-containers" class="level3" data-number="2.4.4">
+<h3 data-number="2.4.4" class="anchored" data-anchor-id="docker-containers"><span class="header-section-number">2.4.4</span> Docker containers</h3>
+<p>There is the ability to use <code>Docker</code> containers, but based on the researchers we have helped in the past few years, we think that most users would find <code>miniforge</code>/<code>conda</code> easier to learn to use. If you are interested in using <code>docker</code> just let us know, and if there are multiple people who are interested, we will fill in this portion of the guide.</p>
+</section>
+</section>
+<section id="managing-jobs" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="managing-jobs"><span class="header-section-number">2.5</span> Managing jobs</h2>
+<p>As we are just launching this computing option, we do not know yet how many researchers are interested in using the compute server, so the way that we manage jobs will likely change in the future.</p>
+<p>For now, since the server is just for small analysis and jobs, just make sure to limit the number of cores (threads) you are using to <strong>16</strong> per user, and that your jobs don’t run for <strong>too long (&lt;12 hours).</strong></p>
+<p>If there are lots of users, then we will likely need to set some limits on the jobs - TBD.</p>
+<p>If you are running large-scale projects (e.g.&nbsp;many samples, lots of cpus/threads, very long jobs) other campus computing resources will be better suited for your needs. <strong>Ask us to teach you how to use them!</strong></p>
+<p>We will not be micromanaging jobs, so we will just rely on your honesty to self manage.</p>
+</section>
+<section id="executing-a-job" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="executing-a-job"><span class="header-section-number">2.6</span> Executing a job</h2>
+<p>You can run commands directly from your home folder while connected to the server. As you are testing here are some tips:</p>
+<ul>
+<li><div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Keep track of your code, have a document nearby to copy-paste your commands or what you are trying and the outputs, just like you would when you are doing a wet lab experiment and writing in a lab notebook.</p></li>
+<li><p>Write down exact commands, errors you are having, and how you solved the error</p></li>
+<li><p>Always start by reading the software manual from the original developers. There will usually be a section with some example commands, or how to use parameters. Sometimes, there is a test dataset that they provide so test that the software you installed (or that we have installed for you) can go through all the execution steps.</p></li>
+<li><p>If you have pressed enter and the job is running, but it’s taking too long and you want to stop it you can press `CTRL+C` to get your prompt again.</p></li>
+</ul>
+</div>
+</div></li>
+</ul>
+<p>When you have tested an example command and know how to use it properly, you can write the command inside of a bash script, save it, make it executable, and run it in the background for example:</p>
+<p><strong>Step 1.</strong> Use <code>nano</code> to write a file named <code>fastqc.sh</code></p>
+<pre><code>#!/bin/bash
+
+fastqc /home/netid@ad.bact.edu/data/reads/*.fastq.gz</code></pre>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>the first line, #!/bin/bash is the header, and tells the computer that this is a bash script (.sh file extension). Always write this at the top of your scripts.</p>
+</div>
+</div>
+<p><strong>Step 2.</strong> Make it executable: <code>chmod +x fastqc.sh</code></p>
+<p><strong>Step 3.</strong> Run your job in the background: <code>nohup bash fastqc.sh &gt; fastqc.log</code></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>What does this mean?</strong></p>
+<ul>
+<li><p><code>nohup</code> allows you to run code in the background. So if you need to close your laptop or disconnect, the job will continue running. This is helpful for very long jobs.</p></li>
+<li><p><code>bash</code> tells the computer that we are giving it a bash script to run. T</p></li>
+<li><p>hat bash script is the <code>fastqc.sh</code> script we used previously.</p></li>
+<li><p>the <code>&gt;</code> means save the terminal output to a file.</p></li>
+<li><p>That file is the log file, in this case, named <code>fastqc.log</code>.</p></li>
+</ul>
+<p>Storing your code in a <code>.sh</code> file is sure way to make your work more reproducible as it contains the exact conda environment you used, and the exact command you use - in case you ever need that in the future, for example when writing your methods section of a paper. The <code>.log</code> file is useful to have because it contains helpful information about troubleshooting.</p>
+</div>
+</div>
+</section>
+<section id="importing-and-exporting-files" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="importing-and-exporting-files"><span class="header-section-number">2.7</span> Importing and Exporting files</h2>
+<p>You can use a FileTransfer program, such as FileZilla or CyberDuck to transfer files.</p>
+<p>You can also use the command line and follow this format:</p>
+<p><code>scp fileyouwantomove whereyouwantomoveit</code></p>
+<ol type="1">
+<li>To transfer files from your laptop to the server:
+<ol type="1">
+<li>Open a terminal on your laptop (<strong>not logged into the server</strong>)</li>
+<li><code>scp filename serveraddress:/path/on/server</code></li>
+<li>For example: <code>scp sample1.fastq.gz netID@gipsydanger.bact.wisc.edu:/home/netid/</code></li>
+</ol></li>
+<li>To transfer a file from the server to your laptop
+<ol type="1">
+<li>Open the terminal and move to the location on your laptop where you want the file to be exported to:</li>
+<li><code>scp netID@gipsydanger.bact.wisc.edu:/home/netid/output/analysed_data.fasta .</code></li>
+</ol></li>
+</ol>
+</section>
+</section>
+<section id="questions" class="level1" data-number="3">
+<h1 data-number="3"><span class="header-section-number">3</span> Questions</h1>
+<p>If you have any bioinformatics/workflows/research computing questions about the Bacteriology server, please address them to the Bioinformatics Research Support Service by <a href="https://bioinformatics.bact.wisc.edu/contact/">contacting us</a> or <a href="https://bioinformatics.bact.wisc.edu/appointments/">making an appointment with us</a>.</p>
+<p>If you have any questions/issues related to the machines themselves should be sent via the CALS IT ticketing system at <a href="https://helpdesk.cals.wisc.edu/" class="uri">https://helpdesk.cals.wisc.edu/</a></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

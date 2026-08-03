@@ -115,13 +115,22 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#overview-and-suitable-uses" id="toc-overview-and-suitable-uses" class="nav-link active" data-scroll-target="#overview-and-suitable-uses"><span class="header-section-number">1</span> Overview and suitable uses</a>
   <ul>
   <li><a href="#requesting-access" id="toc-requesting-access" class="nav-link" data-scroll-target="#requesting-access"><span class="header-section-number">1.0.1</span> Requesting access</a></li>
-  <li><a href="#software-available" id="toc-software-available" class="nav-link" data-scroll-target="#software-available"><span class="header-section-number">1.1</span> Software available</a></li>
-  <li><a href="#databases" id="toc-databases" class="nav-link" data-scroll-target="#databases"><span class="header-section-number">1.2</span> Databases</a></li>
-  <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage"><span class="header-section-number">1.3</span> Data storage</a>
+  <li><a href="#policies-and-expectations" id="toc-policies-and-expectations" class="nav-link" data-scroll-target="#policies-and-expectations"><span class="header-section-number">1.1</span> Policies and Expectations</a></li>
+  <li><a href="#technical-server-specs" id="toc-technical-server-specs" class="nav-link" data-scroll-target="#technical-server-specs"><span class="header-section-number">1.2</span> Technical Server Specs</a></li>
+  <li><a href="#usage-policies" id="toc-usage-policies" class="nav-link" data-scroll-target="#usage-policies"><span class="header-section-number">1.3</span> Usage policies</a>
   <ul class="collapse">
-  <li><a href="#research-drive" id="toc-research-drive" class="nav-link" data-scroll-target="#research-drive"><span class="header-section-number">1.3.1</span> Research Drive</a></li>
-  <li><a href="#personal-storage-space" id="toc-personal-storage-space" class="nav-link" data-scroll-target="#personal-storage-space"><span class="header-section-number">1.3.2</span> Personal Storage space&nbsp;</a></li>
+  <li><a href="#cpu" id="toc-cpu" class="nav-link" data-scroll-target="#cpu"><span class="header-section-number">1.3.1</span> CPU</a></li>
+  <li><a href="#memory" id="toc-memory" class="nav-link" data-scroll-target="#memory"><span class="header-section-number">1.3.2</span> Memory</a></li>
+  <li><a href="#storage" id="toc-storage" class="nav-link" data-scroll-target="#storage"><span class="header-section-number">1.3.3</span> Storage</a></li>
+  <li><a href="#shared-resources" id="toc-shared-resources" class="nav-link" data-scroll-target="#shared-resources"><span class="header-section-number">1.3.4</span> Shared Resources</a></li>
   </ul></li>
+  <li><a href="#software-available" id="toc-software-available" class="nav-link" data-scroll-target="#software-available"><span class="header-section-number">1.4</span> Software available</a></li>
+  <li><a href="#databases" id="toc-databases" class="nav-link" data-scroll-target="#databases"><span class="header-section-number">1.5</span> Databases</a></li>
+  <li><a href="#data-storage" id="toc-data-storage" class="nav-link" data-scroll-target="#data-storage"><span class="header-section-number">1.6</span> Data storage</a>
+  <ul class="collapse">
+  <li><a href="#research-drive" id="toc-research-drive" class="nav-link" data-scroll-target="#research-drive"><span class="header-section-number">1.6.1</span> Research Drive</a></li>
+  </ul></li>
+  <li><a href="#back-ups" id="toc-back-ups" class="nav-link" data-scroll-target="#back-ups"><span class="header-section-number">1.7</span> Back-ups</a></li>
   </ul></li>
   <li><a href="#how-to" id="toc-how-to" class="nav-link" data-scroll-target="#how-to"><span class="header-section-number">2</span> How-to</a>
   <ul>
@@ -132,13 +141,19 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#first-time-using-conda-environments-on-the-server" id="toc-first-time-using-conda-environments-on-the-server" class="nav-link" data-scroll-target="#first-time-using-conda-environments-on-the-server"><span class="header-section-number">2.4.1</span> First time using conda environments on the server</a></li>
   <li><a href="#viewing-available-software" id="toc-viewing-available-software" class="nav-link" data-scroll-target="#viewing-available-software"><span class="header-section-number">2.4.2</span> Viewing available software</a></li>
-  <li><a href="#use-gold-images-pre-installed-software" id="toc-use-gold-images-pre-installed-software" class="nav-link" data-scroll-target="#use-gold-images-pre-installed-software"><span class="header-section-number">2.4.3</span> Use “gold images” (pre-installed software)</a></li>
+  <li><a href="#using-pre-installed-software-gold-images" id="toc-using-pre-installed-software-gold-images" class="nav-link" data-scroll-target="#using-pre-installed-software-gold-images"><span class="header-section-number">2.4.3</span> Using pre-installed software (“gold images”)</a></li>
   <li><a href="#creating-your-own-conda-environment" id="toc-creating-your-own-conda-environment" class="nav-link" data-scroll-target="#creating-your-own-conda-environment"><span class="header-section-number">2.4.4</span> Creating your own conda environment</a></li>
   <li><a href="#docker-containers" id="toc-docker-containers" class="nav-link" data-scroll-target="#docker-containers"><span class="header-section-number">2.4.5</span> Docker containers</a></li>
   </ul></li>
   <li><a href="#managing-jobs" id="toc-managing-jobs" class="nav-link" data-scroll-target="#managing-jobs"><span class="header-section-number">2.5</span> Managing jobs</a></li>
   <li><a href="#executing-a-job" id="toc-executing-a-job" class="nav-link" data-scroll-target="#executing-a-job"><span class="header-section-number">2.6</span> Executing a job</a></li>
   <li><a href="#importing-and-exporting-files" id="toc-importing-and-exporting-files" class="nav-link" data-scroll-target="#importing-and-exporting-files"><span class="header-section-number">2.7</span> Importing and Exporting files</a></li>
+  <li><a href="#related-topics" id="toc-related-topics" class="nav-link" data-scroll-target="#related-topics"><span class="header-section-number">2.8</span> Related topics</a>
+  <ul class="collapse">
+  <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization"><span class="header-section-number">2.8.1</span> Data Organization</a></li>
+  <li><a href="#scripts-name" id="toc-scripts-name" class="nav-link" data-scroll-target="#scripts-name"><span class="header-section-number">2.8.2</span> Scripts name</a></li>
+  <li><a href="#workflow-management" id="toc-workflow-management" class="nav-link" data-scroll-target="#workflow-management"><span class="header-section-number">2.8.3</span> Workflow management</a></li>
+  </ul></li>
   </ul></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">3</span> Questions</a></li>
   </ul>
@@ -168,8 +183,21 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="overview-and-suitable-uses" class="level1" data-number="1">
 <h1 data-number="1"><span class="header-section-number">1</span> Overview and suitable uses</h1>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This is a work in progress! The guide will be officially launched later in August 2026. You are welcome to read it now, but also visit again later for more information.</p>
+</div>
+</div>
 <p>The <strong>Department of Bacteriology</strong> computer server is available for researchers in the Department of Bacteriology free of use. It has been repurposed from previous IT needs and is currently available for research needs.</p>
-<p>As a result, the server <strong>should not be expected</strong> to be expanded or upgraded for additional compute power in the future; rather is just to provide an additional compute environment for learning and analyzing small datasets if needed. The lifespan of the server as of <strong>07/2026</strong> is until <strong>MM/YYYY</strong>.</p>
+<p>As a result, the server <strong>should not be expected</strong> to be expanded or upgraded for additional compute power in the future; rather is just to provide an additional compute environment for learning and analyzing small datasets if needed. The server will be supported from Summer 2026 to its natural end-of-life, in a few years (no exact date).</p>
 <p>The departmental server is suitable for:</p>
 <ul>
 <li><p>Learning simple bioinformatics skills like the command and software installation and usage</p></li>
@@ -192,36 +220,35 @@ ul.task-list li input[type="checkbox"] {
 <p>Once you submit the form, we will be notified by e-mail that you have submitted something.</p>
 <p>You will then receive an e-mail confirming that you have been added within 1-2 business days (except during holidays and our time-off). If necessary, we might ask for more questions to understand your project.</p>
 </section>
-<section id="software-available" class="level2" data-number="1.1">
-<h2 data-number="1.1" class="anchored" data-anchor-id="software-available"><span class="header-section-number">1.1</span> Software available</h2>
-<p>To use software, we have conda environments set up. Conda is a software package managers that allows us to create distinct environments where distinct versions of software is installed.&nbsp;</p>
-<p>Conda (miniforge, technically) environments are organized this way on the server:</p>
+<section id="policies-and-expectations" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="policies-and-expectations"><span class="header-section-number">1.1</span> Policies and Expectations</h2>
+<ol type="1">
+<li>Accounts are linked with your UW-Madison netid and you should not share you log in information with others.</li>
+<li>The server is for academic research use only.</li>
+<li>You must comply with all UW institutional policies (<a href="https://data.wisc.edu/institutional-data-policy/" class="uri">https://data.wisc.edu/institutional-data-policy/</a>), and all local, state and federal laws.</li>
+<li>Protected data should not be imported into the server nor analyzed on the server. For more details on data classification, visit: <a href="https://data.wisc.edu/data-governance/data-classification/" class="uri">https://data.wisc.edu/data-governance/data-classification/</a></li>
+</ol>
+<p>We will be <strong>strict</strong> on rules <strong>1-4</strong>, and if we noticed that we will deactivate your account immediately, and let you know and your PI know.</p>
+<p>Additional usage rules:</p>
+<ol start="5" type="1">
+<li>Always test your jobs using a minimal number of CPUs (at most 4) before running it on your real dataset.</li>
+<li>When running jobs (see How-to section of the guide), limit the # of cpus to at most 8 even on real jobs.</li>
+<li>In addition, to 6, always check the current memory and cpus load and adjust your cpus if other concurrent jobs are running.</li>
+</ol>
+<p>Testing and running jobs (rules <strong>5-7</strong>) might be more tricky, and and we understand that mistakes can happen, especially as you are learning how to use the server or learning to use the command line.</p>
+<p>If we notice not following these rules, we will contact you by e-mail and you will have the opportunity to adjust your job settings within XX hours. This can happen 3 times before we deactivate your account. We will e-mail you a warning e-mail each time.</p>
+<p>If the situation is more severe and your job is taking over the server and affecting the performance of the system, we reserve the right to immediately cancel your job. Hence, it is important for you to keep track of the code you run (or have ran) in scripts so you can adjust and rerun it if that happens. This counts towards the <strong>3-warnings</strong> limit we apply to all users.</p>
+</section>
+<section id="technical-server-specs" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="technical-server-specs"><span class="header-section-number">1.2</span> Technical Server Specs</h2>
+<p>The server provides:</p>
 <ul>
-<li><p><strong>“Gold” environments</strong>: we have pre-installed these for all users. Located at this path: <code>/opt/miniforge</code> . Users can simple activate the environment of their choice to begin using the software.</p></li>
-<li><p><strong>User-created environments</strong>: If a software you want to use is not pre-installed, you can create your own conda environment, and your environments will be saved at this path: <code>/opt/miniforge/users/&lt;your NetID&gt;/envs</code>. Other users on the server will not be able to see the environments under your NetID.</p></li>
+<li>48 physical CPU cores (96 logical CP hyperthreading enabled)</li>
+<li>384 GB of RAM</li>
+<li>Approximately&nbsp;1.8 TB of usable local storage</li>
+<li>The current (08/2026) storage space in <code>/home/</code> is 100GB and can be expanded. This is where you input data, scripts, outputs should go.</li>
+<li>Scratch space: <code>/mnt/scratch</code> is where shared databases downloaded live.</li>
 </ul>
-</section>
-<section id="databases" class="level2" data-number="1.2">
-<h2 data-number="1.2" class="anchored" data-anchor-id="databases"><span class="header-section-number">1.2</span> Databases</h2>
-<p>Certain common bioinformatics software requires large databases.&nbsp;</p>
-<p>We have these pre-installed:</p>
-<ul>
-<li><p>tbd</p></li>
-<li><p>tbd</p></li>
-<li><p>tbd<br>
-</p></li>
-</ul>
-<p>Due to the storage limitations of the repurposed server, we don’t host too many databases. However, we have large databases such as <code>AlphaFold3</code>, <code>NCBI Blast NR</code>, <code>GTDB-tk</code> (multiple versions), on the CHTC HTC cluster – which we can help you learn how to use as well.&nbsp;</p>
-</section>
-<section id="data-storage" class="level2" data-number="1.3">
-<h2 data-number="1.3" class="anchored" data-anchor-id="data-storage"><span class="header-section-number">1.3</span> Data storage</h2>
-<section id="research-drive" class="level3" data-number="1.3.1">
-<h3 data-number="1.3.1" class="anchored" data-anchor-id="research-drive"><span class="header-section-number">1.3.1</span> Research Drive</h3>
-<p>When we planned for setting-up this server, we discussed with CALS IT about the possibility to link <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.</p>
-<p>However, if your data is stored in ResearchDrive but it’s quite small (a few GB), you can simply use regular file transfer tools like <code>scp</code> (see section #Importing and Exporting Data) to transfer files.</p>
-</section>
-<section id="personal-storage-space" class="level3" data-number="1.3.2">
-<h3 data-number="1.3.2" class="anchored" data-anchor-id="personal-storage-space"><span class="header-section-number">1.3.2</span> Personal Storage space&nbsp;</h3>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -232,11 +259,104 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Section to come<br>
-</p>
+<p>We are still figuring out how we will divide up storage space. This will depend on how many users are interested in using the server, as we are limited with expansion. Stay tuned/Let me know your thoughts!</p>
 </div>
 </div>
 </section>
+<section id="usage-policies" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="usage-policies"><span class="header-section-number">1.3</span> Usage policies</h2>
+<section id="cpu" class="level3" data-number="1.3.1">
+<h3 data-number="1.3.1" class="anchored" data-anchor-id="cpu"><span class="header-section-number">1.3.1</span> CPU</h3>
+<ul>
+<li><p>Be considerate of other users.</p></li>
+<li><p>Never use all 96 CPUS.</p></li>
+<li><p>Limit overall load to 75CPUS across all users and jobs at once. Check system load with <code>htop</code>. Only use 16 per user.</p></li>
+</ul>
+</section>
+<section id="memory" class="level3" data-number="1.3.2">
+<h3 data-number="1.3.2" class="anchored" data-anchor-id="memory"><span class="header-section-number">1.3.2</span> Memory</h3>
+<ul>
+<li>If you want to run a job with &gt;250 GB RAM, please contact us ahead of time for now.</li>
+</ul>
+</section>
+<section id="storage" class="level3" data-number="1.3.3">
+<h3 data-number="1.3.3" class="anchored" data-anchor-id="storage"><span class="header-section-number">1.3.3</span> Storage</h3>
+<ul>
+<li><p>Store code and small datasets in <code>/home/netid@ad.wisc.edu</code> directories.</p></li>
+<li><p>You are responsible for removing unused files and environments regularly.</p></li>
+<li><p>Use <code>conda clean –all</code> once in a while to clean your conda environments and save disk space.</p></li>
+</ul>
+</section>
+<section id="shared-resources" class="level3" data-number="1.3.4">
+<h3 data-number="1.3.4" class="anchored" data-anchor-id="shared-resources"><span class="header-section-number">1.3.4</span> Shared Resources</h3>
+<ul>
+<li>The server is a shared resource so please be mindful of your usage and what other people might have running on the server at the same time.</li>
+</ul>
+</section>
+</section>
+<section id="software-available" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="software-available"><span class="header-section-number">1.4</span> Software available</h2>
+<p>To use software, we have conda environments set up. Conda is a software package managers that allows us to create distinct environments where distinct versions of software is installed.&nbsp;</p>
+<p>Conda (miniforge, technically) environments are organized this way on the server:</p>
+<ul>
+<li><p><strong>“Gold” environments</strong>: we have pre-installed these for all users. Located at this path: <code>/opt/miniforge</code> . Users can simple activate the environment of their choice to begin using the software.</p></li>
+<li><p><strong>User-created environments</strong>: If a software you want to use is not pre-installed, you can create your own conda environment, and your environments will be saved at this path: <code>/opt/miniforge/users/&lt;your NetID&gt;/envs</code>. Other users on the server will not be able to see the environments under your NetID.</p></li>
+</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Check out the section “How to –&gt; Using software” for more information!</p>
+</div>
+</div>
+</section>
+<section id="databases" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="databases"><span class="header-section-number">1.5</span> Databases</h2>
+<p>Certain common bioinformatics software requires large databases and will be stored in <code>/mnt/scratch/databases</code>. Paths to specific databases are listed in the section How To –&gt; Using Software –&gt; Use “Gold Images” when they will become available.</p>
+<p>Due to the storage limitations of the repurposed server, we don’t host too many databases. However, we have large databases such as <code>AlphaFold3</code>, <code>NCBI Blast NR</code>, <code>GTDB-tk</code> (multiple versions), on the CHTC HTC cluster – which we can help you learn how to use as well.&nbsp;</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>As we are just launching this in 08/2026, we have not prioritized which databases to include yet. Let me know if you have any suggestions please.</p>
+</div>
+</div>
+</section>
+<section id="data-storage" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="data-storage"><span class="header-section-number">1.6</span> Data storage</h2>
+<section id="research-drive" class="level3" data-number="1.6.1">
+<h3 data-number="1.6.1" class="anchored" data-anchor-id="research-drive"><span class="header-section-number">1.6.1</span> Research Drive</h3>
+<p>When we planned for setting-up this server, we discussed with CALS IT about the possibility to link <a href="https://it.wisc.edu/services/researchdrive/">ResearchDrive</a> on here. This will be done on a case-by-case basis with each PI. If you are interested in this option, please let me know.</p>
+<p>However, if your data is stored in ResearchDrive but it’s quite small (a few GB), you can simply use regular file transfer tools like <code>scp</code> (see section #Importing and Exporting Data) to transfer files.</p>
+</section>
+</section>
+<section id="back-ups" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="back-ups"><span class="header-section-number">1.7</span> Back-ups</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Section to come. For now, just make sure to export all your scripts and outputs to your local laptop after analysis. Always keep a copy of your data somewhere ELSE than this server - this can be your laptop, Google Drive, Box, or ResearchDrive, for example.</p>
+</div>
+</div>
 </section>
 </section>
 <section id="how-to" class="level1" data-number="2">
@@ -378,8 +498,8 @@ Note
 <p>Once you receive your e-mail confirming that you have been added to the user list that can access the server, you will need to:</p>
 <ul>
 <li>Be connected to the internet, and be on the Bacteriology department VPN or the <a href="https://it.wisc.edu/services/wiscvpn/">UW-Madison campus VPN</a>.&nbsp;</li>
+<li>Then, you will use your Terminal App (Mac) or an SSH program (Windows; examples: Powershell, Terminal (WSL), PuTTy, MobaXTerm):</li>
 </ul>
-<p>Then, you will use your Terminal App (Mac) or an SSH program (Windows; examples: Powershell, Terminal (WSL), PuTTy, MobaXTerm):</p>
 <p><code>ssh &lt;Net ID&gt;@gipsydanger.bact.wisc.edu</code></p>
 <p>Replace <code>&lt;Net ID&gt;</code> with your own netID, and no need to use the &lt;&gt; brackets.</p>
 <p>You may need to have your <a href="https://it.wisc.edu/services/duo-multi-factor-authentication-mfa/">multi-factor authentication</a> nearby.</p>
@@ -387,13 +507,27 @@ Note
 <section id="important-folders" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="important-folders"><span class="header-section-number">2.3</span> Important folders</h2>
 <p>The first time you log into the system, you will be in your user home, which path is <code>/home/netid@ad.wisc.edu</code>by default, where netid will be replace with your own netid. This is where you will storage your data, read and write output files.</p>
+<p>The <code>/home</code> storage location is currently 100GB available across all users, but can be expanded in the future.</p>
 </section>
 <section id="using-software" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="using-software"><span class="header-section-number">2.4</span> Using software</h2>
 <section id="first-time-using-conda-environments-on-the-server" class="level3" data-number="2.4.1">
 <h3 data-number="2.4.1" class="anchored" data-anchor-id="first-time-using-conda-environments-on-the-server"><span class="header-section-number">2.4.1</span> First time using conda environments on the server</h3>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Do this regardless on if you plan on using software we have pre-installed or if you plan on installing your own in your own conda environments.</p>
+</div>
+</div>
 <p><br>
-To use Miniforge (conda/mamba commands) on Gipsydanger, do the following:</p>
+To use Miniforge (conda/mamba commands), do the following:</p>
 <ol type="1">
 <li><p><code>/opt/miniforge/bin/conda init</code></p></li>
 <li><p><code>mamba shell init --shell bash --root-prefix=/opt/miniforge</code></p></li>
@@ -412,6 +546,7 @@ Note
 <p>Notice the presence of the parenthesis with a name in front of your prompt tells you that miniforge (conda) is activated. The default one is <code>(base)</code>, but if you type <code>conda activate envrname</code>, then it will change to <code>(envrname)</code>, hinting to you that you have that current envrname environment activated. This can help you figure out if the commands you want to use are available within that specific environment.</p>
 </div>
 </div>
+<p>Once you have done this once, you do not need to do this again next time you log in.</p>
 </section>
 <section id="viewing-available-software" class="level3" data-number="2.4.2">
 <h3 data-number="2.4.2" class="anchored" data-anchor-id="viewing-available-software"><span class="header-section-number">2.4.2</span> Viewing available software</h3>
@@ -425,8 +560,8 @@ Note
 <p><img src="images/clipboard-633775173.png" class="img-fluid"></p>
 <p>See the two sections belows for more information the gold images or how to create your own environments.</p>
 </section>
-<section id="use-gold-images-pre-installed-software" class="level3" data-number="2.4.3">
-<h3 data-number="2.4.3" class="anchored" data-anchor-id="use-gold-images-pre-installed-software"><span class="header-section-number">2.4.3</span> Use “gold images” (pre-installed software)</h3>
+<section id="using-pre-installed-software-gold-images" class="level3" data-number="2.4.3">
+<h3 data-number="2.4.3" class="anchored" data-anchor-id="using-pre-installed-software-gold-images"><span class="header-section-number">2.4.3</span> Using pre-installed software (“gold images”)</h3>
 <p>From any folder location, you can type <code>conda env list</code> to view the most updated list of software available.</p>
 <p>Rows in the printout with a link to <code>/opt/miniforge</code> are some that we have pre-installed for everyone. Refer to the environment name in the first column to activate the environment of your choice.</p>
 <p>For example: <code>conda activate nameoftheenvr</code> (replace nameoftheenvr with the actual name).&nbsp;</p>
@@ -647,7 +782,19 @@ Note
 <p>For now, since the server is just for small analysis and jobs, just make sure to limit the number of cores (threads) you are using to <strong>16</strong> per user, and that your jobs don’t run for <strong>too long (&lt;12 hours).</strong></p>
 <p>If there are lots of users, then we will likely need to set some limits on the jobs - TBD.</p>
 <p>If you are running large-scale projects (e.g.&nbsp;many samples, lots of cpus/threads, very long jobs) other campus computing resources will be better suited for your needs. <strong>Ask us to teach you how to use them!</strong></p>
-<p>We will not be micromanaging jobs, so we will just rely on your honesty to self manage.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the beginning of the roll out of the system, we will be looking a bit more closely at who is using the server and how. But we hope not to have to micromanage this in the future. The strategy we will use to manage jobs will depend on how many users actually sign up to use the server.</p>
+</div>
+</div>
 </section>
 <section id="executing-a-job" class="level2" data-number="2.6">
 <h2 data-number="2.6" class="anchored" data-anchor-id="executing-a-job"><span class="header-section-number">2.6</span> Executing a job</h2>
@@ -666,7 +813,7 @@ Tip
 <li><p>Keep track of your code, have a document nearby to copy-paste your commands or what you are trying and the outputs, just like you would when you are doing a wet lab experiment and writing in a lab notebook.</p></li>
 <li><p>Write down exact commands, errors you are having, and how you solved the error</p></li>
 <li><p>Always start by reading the software manual from the original developers. There will usually be a section with some example commands, or how to use parameters. Sometimes, there is a test dataset that they provide so test that the software you installed (or that we have installed for you) can go through all the execution steps.</p></li>
-<li><p>If you have pressed enter and the job is running, but it’s taking too long and you want to stop it you can press `CTRL+C` to get your prompt again. :::</p></li>
+<li><p>If you have pressed enter and the job is running, but it’s taking too long and you want to stop it you can press `CTRL+C` to get your prompt again.</p></li>
 </ul>
 </div>
 </div>
@@ -735,11 +882,63 @@ Note
 </ol></li>
 </ol>
 </section>
+<section id="related-topics" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="related-topics"><span class="header-section-number">2.8</span> Related topics</h2>
+<section id="data-organization" class="level3" data-number="2.8.1">
+<h3 data-number="2.8.1" class="anchored" data-anchor-id="data-organization"><span class="header-section-number">2.8.1</span> Data Organization</h3>
+<p>You can organize your project differently depending on your project. Regardless, it’s worth the extra few minutes to save your files in a organized manner rather than in a general locations like Downloads, Desktop or Documents, so that you can easily find it later on.</p>
+<p>Here are two example scenarios:</p>
+<p>Datasets for each project:</p>
+<pre><code>./project
+./project/data
+./project/code
+./project/logs
+./project/output</code></pre>
+<p>Data used across multiple projects:</p>
+<pre><code>./data/
+./data/pilot_study
+./data/full_scale
+./data/annual_report
+
+./project1/code
+./project1/log
+./project1/output
+
+./project2/code
+./project2/log
+./project2/output</code></pre>
+</section>
+<section id="scripts-name" class="level3" data-number="2.8.2">
+<h3 data-number="2.8.2" class="anchored" data-anchor-id="scripts-name"><span class="header-section-number">2.8.2</span> Scripts name</h3>
+<p>You can name sequentially for the each steps such as:</p>
+<pre><code>01-qa.sh
+02-assembly.sh
+03-quast.sh
+04-annotation.sh</code></pre>
+<p>That way it will be easier for you to go back to the folder and know in which order you ran the scripts.</p>
+</section>
+<section id="workflow-management" class="level3" data-number="2.8.3">
+<h3 data-number="2.8.3" class="anchored" data-anchor-id="workflow-management"><span class="header-section-number">2.8.3</span> Workflow management</h3>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Section to come with instructions on how to use snakemake or nextflow!</p>
+</div>
+</div>
+</section>
+</section>
 </section>
 <section id="questions" class="level1" data-number="3">
 <h1 data-number="3"><span class="header-section-number">3</span> Questions</h1>
 <p>If you have any bioinformatics/workflows/research computing questions about the Bacteriology server, please address them to the Bioinformatics Research Support Service by <a href="https://bioinformatics.bact.wisc.edu/contact/">contacting us</a> or <a href="https://bioinformatics.bact.wisc.edu/appointments/">making an appointment with us</a>.</p>
-<p>If you have any questions/issues related to the machines themselves should be sent via the CALS IT ticketing system at <a href="https://helpdesk.cals.wisc.edu/" class="uri">https://helpdesk.cals.wisc.edu/</a> :::::</p>
+<p>If you have any questions/issues related to the machines themselves should be sent via the CALS IT ticketing system at <a href="https://helpdesk.cals.wisc.edu/" class="uri">https://helpdesk.cals.wisc.edu/</a></p>
 
 
 </section>

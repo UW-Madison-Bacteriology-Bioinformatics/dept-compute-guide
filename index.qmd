@@ -4,9 +4,13 @@ title: "Department of Bacteriology compute server for research purposes"
 
 # Overview and suitable uses
 
+::: callout-important
+This is a work in progress! The guide will be officially launched later in August 2026. You are welcome to read it now, but also visit again later for more information.
+:::
+
 The **Department of Bacteriology** computer server is available for researchers in the Department of Bacteriology free of use. It has been repurposed from previous IT needs and is currently available for research needs.
 
-As a result, the server **should not be expected** to be expanded or upgraded for additional compute power in the future; rather is just to provide an additional compute environment for learning and analyzing small datasets if needed. The lifespan of the server as of **07/2026** is until **MM/YYYY**.
+As a result, the server **should not be expected** to be expanded or upgraded for additional compute power in the future; rather is just to provide an additional compute environment for learning and analyzing small datasets if needed. The server will be supported from Summer 2026 to its natural end-of-life, in a few years (no exact date).
 
 The departmental server is suitable for:
 
@@ -40,6 +44,67 @@ Once you submit the form, we will be notified by e-mail that you have submitted 
 
 You will then receive an e-mail confirming that you have been added within 1-2 business days (except during holidays and our time-off). If necessary, we might ask for more questions to understand your project.
 
+## Policies and Expectations
+
+1.  Accounts are linked with your UW-Madison netid and you should not share you log in information with others.
+2.  The server is for academic research use only.
+3.  You must comply with all UW institutional policies (<https://data.wisc.edu/institutional-data-policy/>), and all local, state and federal laws.
+4.  Protected data should not be imported into the server nor analyzed on the server. For more details on data classification, visit: <https://data.wisc.edu/data-governance/data-classification/>
+
+We will be **strict** on rules **1-4**, and if we noticed that we will deactivate your account immediately, and let you know and your PI know.
+
+Additional usage rules:
+
+5.  Always test your jobs using a minimal number of CPUs (at most 4) before running it on your real dataset.
+6.  When running jobs (see How-to section of the guide), limit the \# of cpus to at most 8 even on real jobs.
+7.  In addition, to 6, always check the current memory and cpus load and adjust your cpus if other concurrent jobs are running.
+
+Testing and running jobs (rules **5-7**) might be more tricky, and and we understand that mistakes can happen, especially as you are learning how to use the server or learning to use the command line.
+
+If we notice not following these rules, we will contact you by e-mail and you will have the opportunity to adjust your job settings within XX hours. This can happen 3 times before we deactivate your account. We will e-mail you a warning e-mail each time.
+
+If the situation is more severe and your job is taking over the server and affecting the performance of the system, we reserve the right to immediately cancel your job. Hence, it is important for you to keep track of the code you run (or have ran) in scripts so you can adjust and rerun it if that happens. This counts towards the **3-warnings** limit we apply to all users.
+
+## Technical Server Specs
+
+The server provides:
+
+- 48 physical CPU cores (96 logical CP hyperthreading enabled)
+- 384 GB of RAM
+- Approximately 1.8 TB of usable local storage
+- The current (08/2026) storage space in `/home/` is 100GB and can be expanded. This is where you input data, scripts, outputs should go.
+- Scratch space: `/mnt/scratch` is where shared databases downloaded live.
+
+::: callout-note
+We are still figuring out how we will divide up storage space. This will depend on how many users are interested in using the server, as we are limited with expansion. Stay tuned/Let me know your thoughts!
+:::
+
+## Usage policies
+
+### CPU
+
+- Be considerate of other users.
+
+- Never use all 96 CPUS.
+
+- Limit overall load to 75CPUS across all users and jobs at once. Check system load with `htop`. Only use 16 per user.
+
+### Memory
+
+- If you want to run a job with \>250 GB RAM, please contact us ahead of time for now.
+
+### Storage
+
+- Store code and small datasets in `/home/netid@ad.wisc.edu` directories.
+
+- You are responsible for removing unused files and environments regularly.
+
+- Use `conda clean –all` once in a while to clean your conda environments and save disk space.
+
+### Shared Resources
+
+- The server is a shared resource so please be mindful of your usage and what other people might have running on the server at the same time.
+
 ## Software available
 
 To use software, we have conda environments set up. Conda is a software package managers that allows us to create distinct environments where distinct versions of software is installed. 
@@ -50,19 +115,19 @@ Conda (miniforge, technically) environments are organized this way on the server
 
 - **User-created environments**: If a software you want to use is not pre-installed, you can create your own conda environment, and your environments will be saved at this path: `/opt/miniforge/users/<your NetID>/envs`. Other users on the server will not be able to see the environments under your NetID.
 
+::: callout-tip
+Check out the section "How to –\> Using software" for more information!
+:::
+
 ## Databases
 
-Certain common bioinformatics software requires large databases. 
-
-We have these pre-installed:
-
-- tbd
-
-- tbd
-
-- tbd\
+Certain common bioinformatics software requires large databases and will be stored in `/mnt/scratch/databases`. Paths to specific databases are listed in the section How To –\> Using Software –\> Use "Gold Images" when they will become available.
 
 Due to the storage limitations of the repurposed server, we don’t host too many databases. However, we have large databases such as `AlphaFold3`, `NCBI Blast NR`, `GTDB-tk` (multiple versions), on the CHTC HTC cluster – which we can help you learn how to use as well. 
+
+::: callout-note
+As we are just launching this in 08/2026, we have not prioritized which databases to include yet. Let me know if you have any suggestions please.
+:::
 
 ## Data storage
 
@@ -72,10 +137,10 @@ When we planned for setting-up this server, we discussed with CALS IT about the 
 
 However, if your data is stored in ResearchDrive but it's quite small (a few GB), you can simply use regular file transfer tools like `scp` (see section #Importing and Exporting Data) to transfer files.
 
-### Personal Storage space 
+## Back-ups
 
 ::: callout-note
-Section to come\
+Section to come. For now, just make sure to export all your scripts and outputs to your local laptop after analysis. Always keep a copy of your data somewhere ELSE than this server - this can be your laptop, Google Drive, Box, or ResearchDrive, for example.
 :::
 
 # How-to
@@ -163,8 +228,7 @@ Below are a list of useful commands:
 Once you receive your e-mail confirming that you have been added to the user list that can access the server, you will need to:
 
 - Be connected to the internet, and be on the Bacteriology department VPN or the [UW-Madison campus VPN](https://it.wisc.edu/services/wiscvpn/). 
-
-Then, you will use your Terminal App (Mac) or an SSH program (Windows; examples: Powershell, Terminal (WSL), PuTTy, MobaXTerm):
+- Then, you will use your Terminal App (Mac) or an SSH program (Windows; examples: Powershell, Terminal (WSL), PuTTy, MobaXTerm):
 
 `ssh <Net ID>@gipsydanger.bact.wisc.edu`
 
@@ -176,12 +240,18 @@ You may need to have your [multi-factor authentication](https://it.wisc.edu/serv
 
 The first time you log into the system, you will be in your user home, which path is `/home/netid@ad.wisc.edu`by default, where netid will be replace with your own netid. This is where you will storage your data, read and write output files.
 
+The `/home` storage location is currently 100GB available across all users, but can be expanded in the future.
+
 ## Using software
 
 ### First time using conda environments on the server
 
+::: callout-important
+Do this regardless on if you plan on using software we have pre-installed or if you plan on installing your own in your own conda environments.
+:::
+
 \
-To use Miniforge (conda/mamba commands) on Gipsydanger, do the following:
+To use Miniforge (conda/mamba commands), do the following:
 
 1.  `/opt/miniforge/bin/conda init`
 
@@ -192,6 +262,8 @@ To use Miniforge (conda/mamba commands) on Gipsydanger, do the following:
 ::: callout-note
 Notice the presence of the parenthesis with a name in front of your prompt tells you that miniforge (conda) is activated. The default one is `(base)`, but if you type `conda activate envrname`, then it will change to `(envrname)`, hinting to you that you have that current envrname environment activated. This can help you figure out if the commands you want to use are available within that specific environment.
 :::
+
+Once you have done this once, you do not need to do this again next time you log in.
 
 ### Viewing available software
 
@@ -209,7 +281,7 @@ An example of the printout is shown here:
 
 See the two sections belows for more information the gold images or how to create your own environments.
 
-### Use “gold images” (pre-installed software)
+### Using pre-installed software ("gold images")
 
 From any folder location, you can type `conda env list` to view the most updated list of software available.
 
@@ -332,7 +404,9 @@ If there are lots of users, then we will likely need to set some limits on the j
 
 If you are running large-scale projects (e.g. many samples, lots of cpus/threads, very long jobs) other campus computing resources will be better suited for your needs. **Ask us to teach you how to use them!**
 
-We will not be micromanaging jobs, so we will just rely on your honesty to self manage.
+::: callout-note
+In the beginning of the roll out of the system, we will be looking a bit more closely at who is using the server and how. But we hope not to have to micromanage this in the future. The strategy we will use to manage jobs will depend on how many users actually sign up to use the server.
+:::
 
 ## Executing a job
 
@@ -345,7 +419,7 @@ You can run commands directly from your home folder while connected to the serve
 
 - Always start by reading the software manual from the original developers. There will usually be a section with some example commands, or how to use parameters. Sometimes, there is a test dataset that they provide so test that the software you installed (or that we have installed for you) can go through all the execution steps.
 
-- If you have pressed enter and the job is running, but it's taking too long and you want to stop it you can press \`CTRL+C\` to get your prompt again. :::
+- If you have pressed enter and the job is running, but it's taking too long and you want to stop it you can press \`CTRL+C\` to get your prompt again.
 :::
 
 When you have tested an example command and know how to use it properly, you can write the command inside of a bash script, save it, make it executable, and run it in the background for example:
@@ -402,8 +476,62 @@ You can also use the command line and follow this format:
     1.  Open the terminal and move to the location on your laptop where you want the file to be exported to:
     2.  `scp netID@gipsydanger.bact.wisc.edu:/home/netid@ad.wisc.edu/output/analysed_data.fasta .`
 
+## Related topics
+
+### Data Organization
+
+You can organize your project differently depending on your project. Regardless, it's worth the extra few minutes to save your files in a organized manner rather than in a general locations like Downloads, Desktop or Documents, so that you can easily find it later on.
+
+Here are two example scenarios:
+
+Datasets for each project:
+
+```         
+./project
+./project/data
+./project/code
+./project/logs
+./project/output
+```
+
+Data used across multiple projects:
+
+```         
+./data/
+./data/pilot_study
+./data/full_scale
+./data/annual_report
+
+./project1/code
+./project1/log
+./project1/output
+
+./project2/code
+./project2/log
+./project2/output
+```
+
+### Scripts name
+
+You can name sequentially for the each steps such as:
+
+```         
+01-qa.sh
+02-assembly.sh
+03-quast.sh
+04-annotation.sh
+```
+
+That way it will be easier for you to go back to the folder and know in which order you ran the scripts.
+
+### Workflow management
+
+::: callout-note
+Section to come with instructions on how to use snakemake or nextflow!
+:::
+
 # Questions
 
 If you have any bioinformatics/workflows/research computing questions about the Bacteriology server, please address them to the Bioinformatics Research Support Service by [contacting us](https://bioinformatics.bact.wisc.edu/contact/) or [making an appointment with us](https://bioinformatics.bact.wisc.edu/appointments/).
 
-If you have any questions/issues related to the machines themselves should be sent via the CALS IT ticketing system at <https://helpdesk.cals.wisc.edu/> :::::
+If you have any questions/issues related to the machines themselves should be sent via the CALS IT ticketing system at <https://helpdesk.cals.wisc.edu/>

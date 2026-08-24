@@ -85,9 +85,9 @@ We are still figuring out how we will divide up storage space. This will depend 
 
 - Be considerate of other users.
 
-- Never use all 96 CPUS.
+- Never use all 96 CPUS. We recommend \~16CPU per user per job.
 
-- Limit overall load to 75CPUS across all users and jobs at once. Check system load with `htop`. Only use 16 per user.
+- Limit overall load to 75CPUS across all users and jobs at once. Check system load with `htop`.
 
 ### Memory
 
@@ -95,7 +95,9 @@ We are still figuring out how we will divide up storage space. This will depend 
 
 ### Storage
 
-- Store code and small datasets in `/home/netid@ad.wisc.edu` directories.
+- Store scripts and small files in `/home/netid@ad.wisc.edu` directories. Home directories are **100GB** across **all users**.
+
+- Store your datasets in `/mnt/scratch`. The Scratch directories are **600GB** combined across **all users**.
 
 - You are responsible for removing unused files and environments regularly.
 
@@ -238,9 +240,13 @@ You may need to have your [multi-factor authentication](https://it.wisc.edu/serv
 
 ## Important folders
 
-The first time you log into the system, you will be in your user home, which path is `/home/netid@ad.wisc.edu`by default, where netid will be replace with your own netid. This is where you will storage your data, read and write output files.
+The first time you log into the system, you will be in your user home, which path is `/home/netid@ad.wisc.edu`by default, where netid will be replace with your own netid. This is where you will store your scripts and small files.
 
-The `/home` storage location is currently 100GB available across all users, but can be expanded in the future.
+The `/home` storage location is currently 100GB available across all users.
+
+Because of the small folder size for home, the other folder to be aware of the the scratch folder.
+
+`/mnt/scratch/` is where you can store your raw data, input and output files.
 
 ## Using software
 
@@ -431,7 +437,9 @@ When you have tested an example command and know how to use it properly, you can
 
 conda activate fastqc
 
-fastqc /home/netid@ad.bact.edu/data/reads/*.fastq.gz
+mkdir /mtn/scratch/netid/fastqc
+
+fastqc /mnt/scratch/netid/data/reads/*.fastq.gz -o /mtn/scratch/netid/fastqc
 
 conda deactivate
 ```
@@ -471,10 +479,10 @@ You can also use the command line and follow this format:
 1.  To transfer files from your laptop to the server:
     1.  Open a terminal on your laptop (**not logged into the server**)
     2.  `scp filename serveraddress:/path/on/server`
-    3.  For example: `scp sample1.fastq.gz netID@gipsydanger.bact.wisc.edu:/home/netid/`
+    3.  For example: `scp sample1.fastq.gz netID@gipsydanger.bact.wisc.edu:/mnt/scratch/netid/data/.`
 2.  To transfer a file from the server to your laptop
     1.  Open the terminal and move to the location on your laptop where you want the file to be exported to:
-    2.  `scp netID@gipsydanger.bact.wisc.edu:/home/netid@ad.wisc.edu/output/analysed_data.fasta .`
+    2.  ``` scp netID@gipsydanger.bact.wisc.edu:``/mnt/scratch/netid/output/analysed_data.fasta . ```
 
 ## Related topics
 
@@ -487,28 +495,32 @@ Here are two example scenarios:
 Datasets for each project:
 
 ```         
-./project
-./project/data
-./project/code
-./project/logs
-./project/output
+# Large data in the scratch folder
+/mnt/scratch/netid/project
+/mnt/scratch/netid/project/input
+/mnt/scratch/netid/project/output
+
+# Scripts in home folder
+/home/netid@ad.wisc.edu/project/
+/home/netid@ad.wisc.edu/project/code
+/home/netid@ad.wisc.edu/project/logs
 ```
 
 Data used across multiple projects:
 
 ```         
-./data/
-./data/pilot_study
-./data/full_scale
-./data/annual_report
+/mnt/scratch/netid/project
+/mnt/scratch/netid/project/input
+/mnt/scratch/netid/project/output
+/mnt/scratch/netid/project/annual_report
 
-./project1/code
-./project1/log
-./project1/output
+/home/netid@ad.wisc.edu/project1/code
+/home/netid@ad.wisc.edu/project1/log
+/home/netid@ad.wisc.edu/project1/output
 
-./project2/code
-./project2/log
-./project2/output
+/home/netid@ad.wisc.edu/project2/code
+/home/netid@ad.wisc.edu/project2/log
+/home/netid@ad.wisc.edu/project2/output
 ```
 
 ### Scripts name
@@ -523,12 +535,6 @@ You can name sequentially for the each steps such as:
 ```
 
 That way it will be easier for you to go back to the folder and know in which order you ran the scripts.
-
-### Workflow management
-
-::: callout-note
-Section to come with instructions on how to use snakemake or nextflow!
-:::
 
 # Questions
 

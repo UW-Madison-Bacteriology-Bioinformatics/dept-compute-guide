@@ -152,7 +152,6 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#data-organization" id="toc-data-organization" class="nav-link" data-scroll-target="#data-organization"><span class="header-section-number">2.8.1</span> Data Organization</a></li>
   <li><a href="#scripts-name" id="toc-scripts-name" class="nav-link" data-scroll-target="#scripts-name"><span class="header-section-number">2.8.2</span> Scripts name</a></li>
-  <li><a href="#workflow-management" id="toc-workflow-management" class="nav-link" data-scroll-target="#workflow-management"><span class="header-section-number">2.8.3</span> Workflow management</a></li>
   </ul></li>
   </ul></li>
   <li><a href="#questions" id="toc-questions" class="nav-link" data-scroll-target="#questions"><span class="header-section-number">3</span> Questions</a></li>
@@ -269,8 +268,8 @@ Note
 <h3 data-number="1.3.1" class="anchored" data-anchor-id="cpu"><span class="header-section-number">1.3.1</span> CPU</h3>
 <ul>
 <li><p>Be considerate of other users.</p></li>
-<li><p>Never use all 96 CPUS.</p></li>
-<li><p>Limit overall load to 75CPUS across all users and jobs at once. Check system load with <code>htop</code>. Only use 16 per user.</p></li>
+<li><p>Never use all 96 CPUS. We recommend ~16CPU per user per job.</p></li>
+<li><p>Limit overall load to 75CPUS across all users and jobs at once. Check system load with <code>htop</code>.</p></li>
 </ul>
 </section>
 <section id="memory" class="level3" data-number="1.3.2">
@@ -282,7 +281,8 @@ Note
 <section id="storage" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="storage"><span class="header-section-number">1.3.3</span> Storage</h3>
 <ul>
-<li><p>Store code and small datasets in <code>/home/netid@ad.wisc.edu</code> directories.</p></li>
+<li><p>Store scripts and small files in <code>/home/netid@ad.wisc.edu</code> directories. Home directories are <strong>100GB</strong> across <strong>all users</strong>.</p></li>
+<li><p>Store your datasets in <code>/mnt/scratch</code>. The Scratch directories are <strong>600GB</strong> combined across <strong>all users</strong>.</p></li>
 <li><p>You are responsible for removing unused files and environments regularly.</p></li>
 <li><p>Use <code>conda clean –all</code> once in a while to clean your conda environments and save disk space.</p></li>
 </ul>
@@ -506,8 +506,10 @@ Note
 </section>
 <section id="important-folders" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="important-folders"><span class="header-section-number">2.3</span> Important folders</h2>
-<p>The first time you log into the system, you will be in your user home, which path is <code>/home/netid@ad.wisc.edu</code>by default, where netid will be replace with your own netid. This is where you will storage your data, read and write output files.</p>
-<p>The <code>/home</code> storage location is currently 100GB available across all users, but can be expanded in the future.</p>
+<p>The first time you log into the system, you will be in your user home, which path is <code>/home/netid@ad.wisc.edu</code>by default, where netid will be replace with your own netid. This is where you will store your scripts and small files.</p>
+<p>The <code>/home</code> storage location is currently 100GB available across all users.</p>
+<p>Because of the small folder size for home, the other folder to be aware of the the scratch folder.</p>
+<p><code>/mnt/scratch/</code> is where you can store your raw data, input and output files.</p>
 </section>
 <section id="using-software" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="using-software"><span class="header-section-number">2.4</span> Using software</h2>
@@ -823,7 +825,9 @@ Tip
 
 conda activate fastqc
 
-fastqc /home/netid@ad.bact.edu/data/reads/*.fastq.gz
+mkdir /mtn/scratch/netid/fastqc
+
+fastqc /mnt/scratch/netid/data/reads/*.fastq.gz -o /mtn/scratch/netid/fastqc
 
 conda deactivate</code></pre>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -873,12 +877,12 @@ Note
 <ol type="1">
 <li>Open a terminal on your laptop (<strong>not logged into the server</strong>)</li>
 <li><code>scp filename serveraddress:/path/on/server</code></li>
-<li>For example: <code>scp sample1.fastq.gz netID@gipsydanger.bact.wisc.edu:/home/netid/</code></li>
+<li>For example: <code>scp sample1.fastq.gz netID@gipsydanger.bact.wisc.edu:/mnt/scratch/netid/data/.</code></li>
 </ol></li>
 <li>To transfer a file from the server to your laptop
 <ol type="1">
 <li>Open the terminal and move to the location on your laptop where you want the file to be exported to:</li>
-<li><code>scp netID@gipsydanger.bact.wisc.edu:/home/netid@ad.wisc.edu/output/analysed_data.fasta .</code></li>
+<li><code>scp netID@gipsydanger.bact.wisc.edu:``/mnt/scratch/netid/output/analysed_data.fasta .</code></li>
 </ol></li>
 </ol>
 </section>
@@ -889,24 +893,28 @@ Note
 <p>You can organize your project differently depending on your project. Regardless, it’s worth the extra few minutes to save your files in a organized manner rather than in a general locations like Downloads, Desktop or Documents, so that you can easily find it later on.</p>
 <p>Here are two example scenarios:</p>
 <p>Datasets for each project:</p>
-<pre><code>./project
-./project/data
-./project/code
-./project/logs
-./project/output</code></pre>
+<pre><code># Large data in the scratch folder
+/mnt/scratch/netid/project
+/mnt/scratch/netid/project/input
+/mnt/scratch/netid/project/output
+
+# Scripts in home folder
+/home/netid@ad.wisc.edu/project/
+/home/netid@ad.wisc.edu/project/code
+/home/netid@ad.wisc.edu/project/logs</code></pre>
 <p>Data used across multiple projects:</p>
-<pre><code>./data/
-./data/pilot_study
-./data/full_scale
-./data/annual_report
+<pre><code>/mnt/scratch/netid/project
+/mnt/scratch/netid/project/input
+/mnt/scratch/netid/project/output
+/mnt/scratch/netid/project/annual_report
 
-./project1/code
-./project1/log
-./project1/output
+/home/netid@ad.wisc.edu/project1/code
+/home/netid@ad.wisc.edu/project1/log
+/home/netid@ad.wisc.edu/project1/output
 
-./project2/code
-./project2/log
-./project2/output</code></pre>
+/home/netid@ad.wisc.edu/project2/code
+/home/netid@ad.wisc.edu/project2/log
+/home/netid@ad.wisc.edu/project2/output</code></pre>
 </section>
 <section id="scripts-name" class="level3" data-number="2.8.2">
 <h3 data-number="2.8.2" class="anchored" data-anchor-id="scripts-name"><span class="header-section-number">2.8.2</span> Scripts name</h3>
@@ -916,22 +924,6 @@ Note
 03-quast.sh
 04-annotation.sh</code></pre>
 <p>That way it will be easier for you to go back to the folder and know in which order you ran the scripts.</p>
-</section>
-<section id="workflow-management" class="level3" data-number="2.8.3">
-<h3 data-number="2.8.3" class="anchored" data-anchor-id="workflow-management"><span class="header-section-number">2.8.3</span> Workflow management</h3>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Section to come with instructions on how to use snakemake or nextflow!</p>
-</div>
-</div>
 </section>
 </section>
 </section>

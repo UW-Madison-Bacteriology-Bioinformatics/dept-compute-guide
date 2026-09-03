@@ -40,6 +40,8 @@ The form will ask you about:
 
 - General idea of how much data storage you will need
 
+- End date of the server access
+
 Once you submit the form, we will be notified by e-mail that you have submitted something.
 
 You will then receive an e-mail confirming that you have been added within 1-2 business days (except during holidays and our time-off). If necessary, we might ask for more questions to understand your project.
@@ -59,9 +61,9 @@ Additional usage rules:
 6.  When running jobs (see How-to section of the guide), limit the \# of cpus to at most 8 even on real jobs.
 7.  In addition, to 6, always check the current memory and cpus load and adjust your cpus if other concurrent jobs are running.
 
-Testing and running jobs (rules **5-7**) might be more tricky, and and we understand that mistakes can happen, especially as you are learning how to use the server or learning to use the command line.
+Testing and running jobs might be more tricky, and and we understand that mistakes can happen, especially as you are learning how to use the server or learning to use the command line.
 
-If we notice not following these rules, we will contact you by e-mail and you will have the opportunity to adjust your job settings within XX hours. This can happen 3 times before we deactivate your account. We will e-mail you a warning e-mail each time.
+If we notice not following these rules, we will contact you by e-mail if we notice anything strange and you will have chances to rectify the situation. This can happen 3 times before we deactivate your account.
 
 If the situation is more severe and your job is taking over the server and affecting the performance of the system, we reserve the right to immediately cancel your job. Hence, it is important for you to keep track of the code you run (or have ran) in scripts so you can adjust and rerun it if that happens. This counts towards the **3-warnings** limit we apply to all users.
 
@@ -72,11 +74,11 @@ The server provides:
 - 48 physical CPU cores (96 logical CP hyperthreading enabled)
 - 384 GB of RAM
 - Approximately 1.8 TB of usable local storage
-- The current (08/2026) storage space in `/home/` is 100GB and can be expanded. This is where you input data, scripts, outputs should go.
-- Scratch space: `/mnt/scratch` is where shared databases downloaded live.
+- The current (08/2026) storage space in `/home/` is 100GB across all users. This is where you can store small text files such as scripts.
+- Scratch space: `/mnt/scratch` is 600GB. This is where large input and output files go.
 
 ::: callout-note
-We are still figuring out how we will divide up storage space. This will depend on how many users are interested in using the server, as we are limited with expansion. Stay tuned/Let me know your thoughts!
+We have currently implemented a 10GB per home per user and 60GB per /mnt/scratch per user, limiting our server available to 10 user accounts at once. As we roll it out and get a better sense of how many people want to use it, this can change. Stay tuned and/or let me know your thoughts!
 :::
 
 ## Usage policies
@@ -95,13 +97,17 @@ We are still figuring out how we will divide up storage space. This will depend 
 
 ### Storage
 
-- Store scripts and small files in `/home/netid@ad.wisc.edu` directories. Home directories are **100GB** across **all users**.
+- Store scripts and small files in `/home/netid@ad.wisc.edu` directories. Home directories are **100GB** across **all users**. Each user has a quota of **10GB** by default.
 
-- Store your datasets in `/mnt/scratch`. The Scratch directories are **600GB** combined across **all users**.
+- Store your datasets in `/mnt/scratch`. The Scratch directories are **600GB** combined across **all users**. Each user starts with a quota of **60GB**.
 
 - You are responsible for removing unused files and environments regularly.
 
 - Use `conda clean –all` once in a while to clean your conda environments and save disk space.
+
+  ::: callout-important
+  If a user exceeds the soft cap, they will have 30 days to clear enough space to sit below the soft cap before they cannot write to the directory anymore.
+  :::
 
 ### Shared Resources
 
@@ -141,9 +147,7 @@ However, if your data is stored in ResearchDrive but it's quite small (a few GB)
 
 ## Back-ups
 
-::: callout-note
-Section to come. For now, just make sure to export all your scripts and outputs to your local laptop after analysis. Always keep a copy of your data somewhere ELSE than this server - this can be your laptop, Google Drive, Box, or ResearchDrive, for example.
-:::
+We currently do not have an automatic back-up service for the server. Please transfer out your relevant output files. **NEVER** use the server as your sole storage space for your data. A good practice for data backup with the 3-2-1 backup rule: keep 3 copies of your data: original and two backups, two types of media, and 1 copy offsite such as cloud storage (like Box, GoogleDrive, Box).
 
 # How-to
 

@@ -215,6 +215,7 @@ Important
 <li><p>Name and lab affiliation</p></li>
 <li><p>Summary of the type of bioinformatics work you would like to do on the server</p></li>
 <li><p>General idea of how much data storage you will need</p></li>
+<li><p>End date of the server access</p></li>
 </ul>
 <p>Once you submit the form, we will be notified by e-mail that you have submitted something.</p>
 <p>You will then receive an e-mail confirming that you have been added within 1-2 business days (except during holidays and our time-off). If necessary, we might ask for more questions to understand your project.</p>
@@ -234,8 +235,8 @@ Important
 <li>When running jobs (see How-to section of the guide), limit the # of cpus to at most 8 even on real jobs.</li>
 <li>In addition, to 6, always check the current memory and cpus load and adjust your cpus if other concurrent jobs are running.</li>
 </ol>
-<p>Testing and running jobs (rules <strong>5-7</strong>) might be more tricky, and and we understand that mistakes can happen, especially as you are learning how to use the server or learning to use the command line.</p>
-<p>If we notice not following these rules, we will contact you by e-mail and you will have the opportunity to adjust your job settings within XX hours. This can happen 3 times before we deactivate your account. We will e-mail you a warning e-mail each time.</p>
+<p>Testing and running jobs might be more tricky, and and we understand that mistakes can happen, especially as you are learning how to use the server or learning to use the command line.</p>
+<p>If we notice not following these rules, we will contact you by e-mail if we notice anything strange and you will have chances to rectify the situation. This can happen 3 times before we deactivate your account.</p>
 <p>If the situation is more severe and your job is taking over the server and affecting the performance of the system, we reserve the right to immediately cancel your job. Hence, it is important for you to keep track of the code you run (or have ran) in scripts so you can adjust and rerun it if that happens. This counts towards the <strong>3-warnings</strong> limit we apply to all users.</p>
 </section>
 <section id="technical-server-specs" class="level2" data-number="1.2">
@@ -245,8 +246,8 @@ Important
 <li>48 physical CPU cores (96 logical CP hyperthreading enabled)</li>
 <li>384 GB of RAM</li>
 <li>Approximately&nbsp;1.8 TB of usable local storage</li>
-<li>The current (08/2026) storage space in <code>/home/</code> is 100GB and can be expanded. This is where you input data, scripts, outputs should go.</li>
-<li>Scratch space: <code>/mnt/scratch</code> is where shared databases downloaded live.</li>
+<li>The current (08/2026) storage space in <code>/home/</code> is 100GB across all users. This is where you can store small text files such as scripts.</li>
+<li>Scratch space: <code>/mnt/scratch</code> is 600GB. This is where large input and output files go.</li>
 </ul>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -258,7 +259,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>We are still figuring out how we will divide up storage space. This will depend on how many users are interested in using the server, as we are limited with expansion. Stay tuned/Let me know your thoughts!</p>
+<p>We have currently implemented a 10GB per home per user and 60GB per /mnt/scratch per user, limiting our server available to 10 user accounts at once. As we roll it out and get a better sense of how many people want to use it, this can change. Stay tuned and/or let me know your thoughts!</p>
 </div>
 </div>
 </section>
@@ -281,10 +282,23 @@ Note
 <section id="storage" class="level3" data-number="1.3.3">
 <h3 data-number="1.3.3" class="anchored" data-anchor-id="storage"><span class="header-section-number">1.3.3</span> Storage</h3>
 <ul>
-<li><p>Store scripts and small files in <code>/home/netid@ad.wisc.edu</code> directories. Home directories are <strong>100GB</strong> across <strong>all users</strong>.</p></li>
-<li><p>Store your datasets in <code>/mnt/scratch</code>. The Scratch directories are <strong>600GB</strong> combined across <strong>all users</strong>.</p></li>
+<li><p>Store scripts and small files in <code>/home/netid@ad.wisc.edu</code> directories. Home directories are <strong>100GB</strong> across <strong>all users</strong>. Each user has a quota of <strong>10GB</strong> by default.</p></li>
+<li><p>Store your datasets in <code>/mnt/scratch</code>. The Scratch directories are <strong>600GB</strong> combined across <strong>all users</strong>. Each user starts with a quota of <strong>60GB</strong>.</p></li>
 <li><p>You are responsible for removing unused files and environments regularly.</p></li>
-<li><p>Use <code>conda clean –all</code> once in a while to clean your conda environments and save disk space.</p></li>
+<li><p>Use <code>conda clean –all</code> once in a while to clean your conda environments and save disk space.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If a user exceeds the soft cap, they will have 30 days to clear enough space to sit&nbsp;below the soft cap before they cannot write to the directory anymore.</p>
+</div>
+</div></li>
 </ul>
 </section>
 <section id="shared-resources" class="level3" data-number="1.3.4">
@@ -344,19 +358,7 @@ Note
 </section>
 <section id="back-ups" class="level2" data-number="1.7">
 <h2 data-number="1.7" class="anchored" data-anchor-id="back-ups"><span class="header-section-number">1.7</span> Back-ups</h2>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>Section to come. For now, just make sure to export all your scripts and outputs to your local laptop after analysis. Always keep a copy of your data somewhere ELSE than this server - this can be your laptop, Google Drive, Box, or ResearchDrive, for example.</p>
-</div>
-</div>
+<p>We currently do not have an automatic back-up service for the server. Please transfer out your relevant output files. <strong>NEVER</strong> use the server as your sole storage space for your data. A good practice for data backup with the 3-2-1 backup rule: keep 3 copies of your data: original and two backups, two types of media, and 1 copy offsite such as cloud storage (like Box, GoogleDrive, Box).</p>
 </section>
 </section>
 <section id="how-to" class="level1" data-number="2">

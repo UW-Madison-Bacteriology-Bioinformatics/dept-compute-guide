@@ -4,10 +4,6 @@ title: "Department of Bacteriology compute server for research purposes"
 
 # Overview and suitable uses
 
-::: callout-important
-This is a work in progress! The guide will be officially launched later in August 2026. You are welcome to read it now, but also visit again later for more information.
-:::
-
 The **Department of Bacteriology** computer server is available for researchers in the Department of Bacteriology free of use. It has been repurposed from previous IT needs and is currently available for research needs.
 
 As a result, the server **should not be expected** to be expanded or upgraded for additional compute power in the future; rather is just to provide an additional compute environment for learning and analyzing small datasets if needed. The server will be supported from Summer 2026 to its natural end-of-life, in a few years (no exact date).
@@ -22,7 +18,7 @@ The departmental server is suitable for:
 
 If you are working on an analysis-heavy project, other free campus compute resources might be more suitable. **The Bioinformatics Research Support Service will be happy to meet with you to advise on what compute resource + training is most suited for your project needs, and where you currently are in your bioinformatics learning journey.**
 
-For example, we train many researchers in implementing their bioinformatics work on the [Center for High Throughput Computing (CHTC) HTC cluster](https://chtc.cs.wisc.edu/uw-research-computing/form.html).
+For example, we train many researchers in implementing their bioinformatics work on the [Center for High Throughput Computing (CHTC) HTC cluster](https://chtc.cs.wisc.edu/uw-research-computing/form.html), or how to run smaller interactive jobs on [BadgerCompute](https://badgercompute.wisc.edu/).
 
 All the core skills you are using on the departmental server will be transferable to scaling your work on larger-scale computing resources. We actually work closely with their research facilitation team and meet with them monthly to update each other on what biologists are using research computing for!
 

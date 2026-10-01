@@ -22,7 +22,7 @@ For example, we train many researchers in implementing their bioinformatics work
 
 All the core skills you are using on the departmental server will be transferable to scaling your work on larger-scale computing resources. We actually work closely with their research facilitation team and meet with them monthly to update each other on what biologists are using research computing for!
 
-The Dept of Bacteriology's Bioinformatics Research Support Service will be happy to meet with you frequently or as needed to teach you some more advanced topics needed to use the departmental server and the compute resources or our campus partners.
+The Dept of Bacteriology's Bioinformatics Research Support Service will be happy to meet with you frequently or as needed to teach you some more advanced topics needed to use the departmental server and the compute resources of our campus partners.
 
 ### Requesting access
 
